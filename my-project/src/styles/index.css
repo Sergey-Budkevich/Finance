@@ -1,0 +1,28 @@
+@import url('./fonts/fonts.css');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+}
+
+.content{
+  max-width: calc(1170px + 16px * 2);
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.title{
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 53px;
+  font-family: 'Rubik';
+}
+a{
+  text-decoration: none;
+  color: rgb(66, 158, 249);
+}
+a:hover{
+  scale: 1.08;
+}

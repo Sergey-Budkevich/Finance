@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import Content from './content'
+import Content from './Content'
 import '../styles/converter.css'
 
 
@@ -28,7 +28,7 @@ useEffect( () => {
         .then(response => response.json()) 
         .then(response => setCurrencyList(Object.keys(response.symbols).sort()))
     }())
-},[])
+},[] )
 
 useEffect( () => {
     (async function () {
@@ -52,7 +52,7 @@ useEffect( () => {
     return (
         <Content>
             <section className='converter-container'>
-                <h2 className='converter-title'>Конвертер валют</h2>
+                <h2 className='title'>Конвертер валют</h2>
                 <div className='converter-block'>
                     <div className='amount-currency-block currency-block'>
                         <label>Amount</label>
@@ -62,8 +62,8 @@ useEffect( () => {
                         <label >From</label>
                         <select value={ currentCurrency } onChange={ e => setCurrentCurrency(e.target.value) }>
                             {
-                                currencyList.length ? currencyList.map( item => 
-                                    <option key={item} value={item} >{item}</option> ) : ''
+                                currencyList.length && currencyList.map( item => 
+                                    <option key={item} value={item} >{item}</option> )
                             }
                         </select>
                     </div>

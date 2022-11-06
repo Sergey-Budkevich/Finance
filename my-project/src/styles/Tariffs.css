@@ -1,0 +1,47 @@
+.tariffs{
+    padding: 90px 0 145px;
+}
+
+.tariffs-card-container{
+    position: relative;
+
+}
+.tariffs-card-container::before{
+    content: '';
+    background-image: url('../../public/images/background_new_circle.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 437px;
+    height: 437px;
+    position: absolute;
+    bottom: -90px;
+    left: -260px;
+    z-index: -1;
+}
+.tariffs-card-container::after{
+    content: '';
+    background-image: url('../../public/images/background_circle_about.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 308px;
+    height: 308px;
+    position: absolute;
+    top: 42px;
+    right: -140px;
+    z-index: -1;
+}
+
+.tarriffs-title{
+    color: #29246A;
+    text-align: center;
+}
+
+.tariffs-cards{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+    align-items: stretch;
+}

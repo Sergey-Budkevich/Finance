@@ -1,0 +1,37 @@
+.intro{
+    background: linear-gradient(258.66deg, #9754FF -4.76%, #87B9FA 119.06%);
+    border-bottom: 1px solid #E0E0E0;
+}
+.intro-block{
+    padding: 72px 0 100px 100px;
+    display: flex;
+    position: relative;
+}
+.intro-description{
+    z-index: 1;
+}
+.intro-title{
+    color: white;
+    font-size: 35px;
+    line-height: 43px;
+    font-weight: 500;
+    width: 590px;
+}
+.intro-text{
+    margin-top: 20px;
+    width: 442px;
+    color: white;
+    font-size: 18px;
+    line-height: 25px;
+}
+.intro-description .dark{
+    margin-top: 43px;
+    width: 250px;
+    height: 50px;
+}
+.image-block{
+    position: absolute;
+    right: -65px;
+    top: 120px;
+    z-index: 0;
+}

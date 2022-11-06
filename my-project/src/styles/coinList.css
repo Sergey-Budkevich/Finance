@@ -1,0 +1,82 @@
+.container{ 
+    width: 100% ;
+    padding: 30px 0 0 ;
+}
+.table{
+    margin-top: 40px; 
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table-head{
+    background-color:#eef3fa; 
+    height: 40px;
+}
+
+.table-head-btn{
+    background-color: transparent;
+    border: none;
+}
+
+.table-head tr{
+    border-bottom: 1px solid #afc6e0;
+    
+}
+th{ 
+    text-align: start; 
+    font-size: 18px;
+    font-weight: 500;
+
+}
+td,th{ padding:10px 15px ;}
+
+.coin-block {
+    border-bottom: 1px solid rgb(219, 219, 219);;
+}
+.coin-info{
+    display: flex;
+    column-gap: 20px;
+    align-items: stretch;
+}
+
+.coin-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.symbol-name{
+    color: #999;
+}
+
+.up{ color: #31ae18; }
+
+.pagination{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+}
+.pagination .btn {
+    height: 35px;
+    width: 35px;
+    border-radius: 2px;
+    color: #14509c;
+    border: 1px solid #92c1ff;
+    background-color: transparent;
+}
+.pagination .btn:hover{
+    color: crimson;
+}
+.positive {
+    color: #31ae18;
+}
+.negative {
+    color: red;
+}
+
+.change-block p span {
+    margin-left: 6px;
+}

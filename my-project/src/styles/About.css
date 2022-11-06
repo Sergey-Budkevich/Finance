@@ -1,0 +1,44 @@
+.about{
+    padding: 140px 0 200px;
+}
+
+.about-container{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+.about-container::before{
+    content: '';
+    background-image: url('../../public/images/background_circle_about.png');
+    background-repeat: no-repeat;
+    width: 543px;
+    height: 543px;    
+    position: absolute;
+    top: 120px;
+    left: -30px;
+}
+
+
+.about-info{
+    width: 45%;
+}
+.about-image-block{
+    width: 45%;
+    position: absolute;
+    top: 0;
+    left: -160px;
+}
+.about-title{
+    color: #29246A;
+}
+
+.about-text{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #4F4F4F;
+}

@@ -1,0 +1,36 @@
+footer{
+    background: linear-gradient(258.66deg, #9754FF -4.76%, #87B9FA 119.06%);
+    
+}
+
+.footer-top-row{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+
+.footer-middle-row{
+    padding: 10px 20px;
+}
+
+.footer-navigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.footer-bottom-row{
+    padding: 10px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.footer-copyright{
+    color: rgb(196, 195, 195);
+}
+.author-info{
+    color: white;
+}
