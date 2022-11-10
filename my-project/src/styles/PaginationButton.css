@@ -1,0 +1,25 @@
+.pagination-btn{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    color: #9754FF;
+    cursor: pointer;
+    border:none;
+}
+
+
+.pagination-btn-active{
+    color: black;
+    border: 1px solid #9754FF;
+}
+
+.pagination-btn:active{
+    opacity: 0.8;
+    color: orange;
+}
+
+.pagination-btn:hover{
+    -webkit-box-shadow: 3px 3px 3px 2px rgba(255, 255, 255, 0.3) inset;
+    -moz-box-shadow: 3px 3px 3px 2px rgba(255, 255, 255, 0.3) inset;
+    box-shadow: 3px 3px 3px 2px rgba(255, 255, 255, 0.3) inset;
+}

@@ -3,33 +3,33 @@ import CryptoCoin from "../types/CryptoCoin";
 import CoinBlock from "./coin";
 import Content from "./Content";
 import '../styles/coinList.css'
-
+import { fetchCoinList, fetchPageQty } from "../store/reducers/CoinListSlice";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import {Pagination} from '@mui/material'
 
 function CoinList(){
-    let [coinList,setCoinList] = useState<CryptoCoin[]> ([])
+    const dispatch = useAppDispatch();
+    
+    const { coinList, status, error, pageQty } = useAppSelector(state => state.cryptoCoinList)
+    const [page,setPage] = useState<number>(1);
 
 useEffect(() =>{
-    const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': 'd3c4ceeefamsh4ecae7738c6a06dp19db7fjsnd69594cea44d',
-        'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-    }
-    };
+    dispatch(fetchCoinList(page));
+    dispatch(fetchPageQty())
     
-    (async function () {
-    await fetch('https://coinranking1.p.rapidapi.com/coins?limit=20', options)
-    .then(response => response.json())
-    .then(res => setCoinList(res.data.coins))
-    .catch(err => console.error(err));
-    }())
-},[])
+},[]);
 
+useEffect(() => {
+    dispatch(fetchCoinList(page));
+},[page]);
 
     return (
         <Content>
             <div className="container">
                 <h2 className="title">Курсы криптовалют на сегодня</h2>
+                { 
+                status === 'loading' ? <h2 className="loading">Loading...</h2>:
+                coinList.length ? 
                 <table className="table">
                     <thead className="table-head">
                         <tr>
@@ -42,7 +42,6 @@ useEffect(() =>{
                     </thead>
                     <tbody className="table-body">
                         {
-                        coinList.length &&
                         coinList.map( item => 
                         <CoinBlock key={ item.uuid }
                         icon={ item.iconUrl }
@@ -52,14 +51,23 @@ useEffect(() =>{
                         capitalization={ item.marketCap }
                         volume={ item["24hVolume"]}
                         change={ item.change }
-                        />  )
+                        />  ) 
                     }
                     </tbody>
-                </table>
+                </table> :
+                error ? <h2 className="loading">{ error }</h2> : ''
+                }
+
                 <div className="pagination">
-                    <button className="btn" type="button">1</button>
-                    <button className="btn" type="button">2</button>
-                    <button className="btn" type="button">3</button>
+                        { 
+                        !!pageQty && 
+                            <Pagination 
+                            
+                            count={pageQty}
+                            page={page}
+                            onChange={ ( _,num: number ) => setPage(num)}
+                            />
+                        }
                 </div>
             </div>
         </Content>
