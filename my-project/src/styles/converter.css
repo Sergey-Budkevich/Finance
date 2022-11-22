@@ -1,5 +1,12 @@
+.converter{
+    min-height: calc(100vh - ( 92px + 154px ));
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .converter-container{
-    margin-top: 50px;
+    
     width: 100%;
     padding: 30px 20px;
     border-radius: 12px;

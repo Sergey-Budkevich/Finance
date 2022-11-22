@@ -1,8 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import Content from './Content'
-import '../styles/converter.css'
-
-
+import '../styles/Converter.css'
 
 function Converter(){
 
@@ -11,7 +9,7 @@ function Converter(){
     let [currentCurrency,setCurrentCurrency] = useState<string>('USD')
     let [desiredCurrency,setDesiredCurrency] = useState('BYN')
     let [currencyList,setCurrencyList] = useState<string[]>([])
-    let [newCurrencyList,setNewCurrencyList] = useState<[string,string][]>([])
+    // let [newCurrencyList,setNewCurrencyList] = useState<[string,string][]>([])
 
 
 useEffect( () => {
@@ -50,46 +48,42 @@ useEffect( () => {
 
 
     return (
-        <Content>
-            <section className='converter-container'>
-                <h2 className='title'>Конвертер валют</h2>
-                <div className='converter-block'>
-                    <div className='amount-currency-block currency-block'>
-                        <label>Amount</label>
-                        <input onChange={ e => setAmountCurrentCurrency(e.target.value) } value={amountCurrentCurrency} type="number" placeholder='Введите кол-во валюты'/>
+        <section className='converter'>
+            <Content>
+                <div className='converter-container'>
+                    <h2 className='title'>Конвертер валют</h2>
+                    <div className='converter-block'>
+                        <div className='amount-currency-block currency-block'>
+                            <label>Amount</label>
+                            <input onChange={ e => setAmountCurrentCurrency(e.target.value) } value={amountCurrentCurrency} type="number" placeholder='Введите кол-во валюты'/>
+                        </div>
+                        <div className='current-currency-block currency-block'>
+                            <label >From</label>
+                            <select value={ currentCurrency } onChange={ e => setCurrentCurrency(e.target.value) }>
+                                {
+                                    currencyList.length && currencyList.map( item => 
+                                        <option key={item} value={item} >{item}</option> )
+                                }
+                            </select>
+                        </div>
+                        <div className='desired-currency-block currency-block'>
+                            <label >To</label>
+                            <select value={ desiredCurrency }  onChange={ e => setDesiredCurrency( e.target.value )}>
+                                {
+                                    currencyList.length ? currencyList.map( item => 
+                                        <option key={item} value={item} >{item}</option> ) : ''
+                                }
+                            </select>
+                        </div>
                     </div>
-                    <div className='current-currency-block currency-block'>
-                        <label >From</label>
-                        <select value={ currentCurrency } onChange={ e => setCurrentCurrency(e.target.value) }>
-                            {
-                                currencyList.length && currencyList.map( item => 
-                                    <option key={item} value={item} >{item}</option> )
-                            }
-                        </select>
-                    </div>
-                    <div className='desired-currency-block currency-block'>
-                        <label >To</label>
-                        <select value={ desiredCurrency }  onChange={ e => setDesiredCurrency( e.target.value )}>
-                            {
-                                currencyList.length ? currencyList.map( item => 
-                                    <option key={item} value={item} >{item}</option> ) : ''
-                            }
-                        </select>
+                    <div className='result-block'>
+                        <p className='result-block-text'>Converting result: <span>{amountDesiredCurrency}</span></p>
                     </div>
                 </div>
-                <div className='result-block'>
-                    <p className='result-block-text'>Converting result: <span>{amountDesiredCurrency}</span></p>
-                </div>
-            </section>
-        </Content>
+            </Content>
+        </section>
+
     )
 }
-
-
-
-
-
-
-
 
 export default Converter;

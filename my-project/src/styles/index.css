@@ -6,9 +6,14 @@
   box-sizing: border-box;
   font-family: 'Open Sans';
 }
+body{
+  width: 100%;
+  overflow-x: hidden;
+}
 
 .content{
   max-width: calc(1170px + 16px * 2);
+  width: 100%;
   padding: 0 16px;
   margin: 0 auto;
 }

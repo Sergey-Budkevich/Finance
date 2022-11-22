@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Content from './Content'
-import Image from './image'
 import '../styles/Header.css'
-import LogoImage from './Logo'
 import Logo from './Logo'
 import InstagramIcon from './Icons/InstagramIcon'
 
@@ -36,7 +34,10 @@ function Header(){
                             Конвертер валют
                         </Link>
                         <Link className='link' to='crypto-news'>
-                            Новости криптовалют
+                            Новости крипторынка
+                        </Link>
+                        <Link className='link' to='crypto-graph'>
+                            Графики криптовалют
                         </Link>
                     </div>
                 </nav>

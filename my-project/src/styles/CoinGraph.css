@@ -1,0 +1,55 @@
+.coin-graph{
+    padding: 50px 0 80px;
+}
+
+.coins-block{
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+.coin-block_title{
+    text-align: center;
+}
+
+.coin-cards{
+    margin-top: 30px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.coin-card{
+    padding: 10px 5px;
+    max-width: 24.6%;
+    width: 100%;
+    display: flex;
+    column-gap: 15px;
+    border: 1px solid black;
+    align-items: stretch;
+    justify-content: space-between;
+}
+/* исправить */
+.coin-card:hover{
+    cursor: pointer;
+}
+.coin-card:active{
+    opacity: 0.8;
+}
+
+.coin-card img{
+    object-fit:contain;
+    height: 50px;
+}
+
+.coin-card_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
+    width: 100%;
+}

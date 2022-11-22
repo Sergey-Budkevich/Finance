@@ -1,52 +1,51 @@
 import React, { useEffect, useState } from 'react'
-import News from '../types/News'
-import '../styles/NewsBlock.css'
+import { useAppDispatch, useAppSelector } from '../hooks/hooks'
+import { fetchNewsList } from '../store/slices/NewsSlice'
+import '../styles/News.css'
 
 import Content from './Content'
+import LoaderSpinner from './LoaderSpinner'
 
 
 
 function NewsBlock(){
 
-let [newsList,setNewsList] = useState<News[]> ([])
-let [smallNewsList,setSmallNewsList] = useState<News[]> ([])
+const dispatch = useAppDispatch()
+const {newsList, status} = useAppSelector(state => state.newsList)
+
 useEffect( () => {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'd3c4ceeefamsh4ecae7738c6a06dp19db7fjsnd69594cea44d',
-            'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
-        }
-    };
-
-(async function () {
-    await fetch('https://mboum-finance.p.rapidapi.com/ne/news', options)
-        .then(response => response.json())
-        .then(response => setNewsList(response))
-    setSmallNewsList([newsList[0],newsList[1],newsList[2],newsList[3],newsList[4],newsList[5]] )
-}())
-
+    dispatch(fetchNewsList())
 },[])
-console.log(smallNewsList);
 
 
     return(
-        <Content>
-            <div className='container'>
-                {
-                    newsList.length && 
-                    newsList.map(( item,index) => 
-                    <div key={index} className='news-block'>
-                        <h3 className='news-title'>{ item.title }</h3>
-                        <p className='news-text'>Источник:<span>{ item.source }</span></p>
-                        <div className='news-info'>
-                            <p className='news-date'>{ item.pubDate}</p>
-                            <a className='news-link' href={ item.link }>Перейти &#10149;</a>
-                        </div>
-                    </div> )
-                }
-            </div>
-        </Content>
+        <section className='news'>
+        { status === 'loading' && <LoaderSpinner/>}
+            <Content>
+                <div className='news-container'>
+                    <h2 className='title news-title'>Новости крипторынка</h2>
+                    <div className='news-wrapper'>
+                    {
+                        !!newsList.length && 
+                        newsList.map(( item,index) => 
+                        <div key={index} className='news-block'>
+                            <div className='news-image'>
+                                news-image
+                            </div>
+                            <div className='news-description'>
+                                <h3 className='news-block-title'>{ item.title }</h3>
+                                <p className='news-text'>Источник:<span>{ item.source }</span></p>
+                                <div className='news-info'>
+                                    <p className='news-date'>{ item.pubDate}</p>
+                                    <a className='news-link' href={ item.link }>Перейти &#10149;</a>
+                                </div>
+                            </div>
+                        </div> )
+                    }
+                    </div>
+                </div>
+            </Content>
+        </section>
     )
 }
 

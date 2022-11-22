@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import CoinListSlice, { coinListSlice } from "./reducers/CoinListSlice";
+import  { coinListSlice } from "./slices/CoinListSlice";
+import  { NewsListSlice } from "./slices/NewsSlice";
 
 
 export const store = configureStore( { 
     reducer: {
         cryptoCoinList: coinListSlice.reducer,
+        newsList: NewsListSlice.reducer,
     },
 })
 

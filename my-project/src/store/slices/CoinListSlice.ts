@@ -1,12 +1,5 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
-// import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../store'
 import CryptoCoin from '../../types/CryptoCoin'
-import { stat } from 'fs'
-import { resolve } from 'path'
-import { Action } from '@remix-run/router'
-
-
 
 const options = {
     method: 'GET',
@@ -16,19 +9,21 @@ const options = {
     }
 }
 
-export const fetchCoinList:any = createAsyncThunk(
+
+// Promise<dlfkdlfkdlfk>
+export const fetchCoinList:any= createAsyncThunk(
     'cryptoCoinList/fetchCoinList',
-    async function ( offset:number, { rejectWithValue } ) {
+    async function ([pageNumber,limit]:number[], { rejectWithValue }) {
         try {
-            const response = await fetch(`https://coinranking1.p.rapidapi.com/coins?limit=20&offset=${20*(offset - 1)}`, options);
+            const response = await fetch(`https://coinranking1.p.rapidapi.com/coins?limit=${limit}&offset=${limit * (pageNumber - 1)}`, options);
             if (!response.ok){
                 throw new Error('Server Error!')
             }
             const data = await response.json();
             const result = data.data.coins
             return result;
-        } catch (error) {
-            return rejectWithValue(error + "")
+        } catch (error:any) {
+            return rejectWithValue(error.message)
         }
     }
 );
@@ -51,23 +46,35 @@ type initialStateType = {
     pageQty: number
 }
 
-const initialState:initialStateType = {
-    coinList: [],
-    status: null,
-    error: null,
-    pageQty: 0
-}
+    const initialState:initialStateType = {
+        coinList: [],
+        status: null,
+        error: null,
+        pageQty: 0
+    }
 
 export const coinListSlice = createSlice({
     name: 'cryptoCoinList',
     initialState,
     reducers : {
-
+        sortByPrice: (state) => {
+            state.coinList.sort((a:CryptoCoin, b:CryptoCoin) => +b.price - +a.price)
+        },
+        sortByCapitalization: (state) => {
+            state.coinList.sort((a:CryptoCoin, b:CryptoCoin) => +b.marketCap - +a.marketCap)
+        },
+        sortByVolume: (state) => {
+            state.coinList.sort((a:CryptoCoin, b:CryptoCoin) => +b["24hVolume"] - +a["24hVolume"])
+        },
+        sortByChange: (state) => {
+            state.coinList.sort((a:CryptoCoin, b:CryptoCoin) => +b.change - +a.change)
+        },
     },
     extraReducers:{
         [fetchCoinList.pending] : (state) => {
             state.status = 'loading';
             state.error = null;
+            
         },
         [fetchCoinList.fulfilled] : (state,action) => {
             state.status = 'resolve';
@@ -84,6 +91,6 @@ export const coinListSlice = createSlice({
     }
 })
 
-// export const getCoinList = ( state: RootState ) => state.cryptoCoinList.coinList
+export const { sortByPrice, sortByCapitalization, sortByVolume, sortByChange } = coinListSlice.actions
 
 export default coinListSlice.reducer
