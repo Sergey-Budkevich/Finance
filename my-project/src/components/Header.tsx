@@ -4,6 +4,7 @@ import Content from './Content'
 import '../styles/Header.css'
 import Logo from './Logo'
 import InstagramIcon from './Icons/InstagramIcon'
+import Button from './Button'
 
 
 function Header(){
@@ -17,10 +18,15 @@ function Header(){
                                 <Logo/>
                             </Link>
                         </div>
-                        <div className='social'>
-                            <a href="https://www.instagram.com/">
-                                <InstagramIcon/>
-                            </a>
+                        <div className="top-row-navigation_items">
+                            <div className='social'>
+                                <a href="https://www.instagram.com/">
+                                    <InstagramIcon/>
+                                </a>
+                            </div>
+                            <Link to="entry">
+                                <Button className={"transparent"} type={'button'} textColor={"#FFF"}>Войти</Button>
+                            </Link>
                         </div>
                     </div>
                     <div className='bottom-row-navigation'>

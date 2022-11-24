@@ -1,0 +1,16 @@
+.user-agreement{
+    padding: 70px 0;
+}
+
+.user-agreement_title{
+    text-align: center;
+}
+
+.user-agreement_info{
+    max-width: 80%;
+    margin: 40px auto 0;
+}
+
+.user-agreement_info li:not(:first-child) {
+    margin-top: 20px;
+}

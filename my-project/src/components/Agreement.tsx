@@ -2,6 +2,7 @@ import React from 'react'
 import Button from './Button'
 import Content from './Content'
 import '../styles/Agreement.css'
+import { Link } from 'react-router-dom'
 
 
 function Agreement(){
@@ -14,7 +15,9 @@ function Agreement(){
                     </div>
                     <div className='agreement-block'>
                         <h2 className='title agreement-title'>Пользовательское соглашение</h2>
-                        <Button className={'orange'} type={'button'}>Ознакомиться</Button>               
+                        <Link to={'user-agreement'}>
+                            <Button className={'orange'} type={'button'}>Ознакомиться</Button> 
+                        </Link>              
                     </div>
                 </div>
             </Content>

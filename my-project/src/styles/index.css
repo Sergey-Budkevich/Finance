@@ -10,6 +10,9 @@ body{
   width: 100%;
   overflow-x: hidden;
 }
+main{
+  min-height: calc(100vh - (141px + 92px));
+}
 
 .content{
   max-width: calc(1170px + 16px * 2);

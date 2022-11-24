@@ -18,6 +18,4 @@ function Layout(){
     )
 }
 
-//в тарифах бэкграунд
-
 export default Layout

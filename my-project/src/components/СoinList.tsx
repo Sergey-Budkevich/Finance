@@ -19,7 +19,7 @@ function CoinList(){
     const [limit,setLimit] = useState<number>(20);
     
 useEffect(() => {
-    dispatch(fetchCoinList([page,limit] ));
+    dispatch(fetchCoinList([page,limit]));
     dispatch(fetchPageQty())
 },[]);
 

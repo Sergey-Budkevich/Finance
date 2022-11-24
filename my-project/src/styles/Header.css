@@ -36,3 +36,16 @@ header {
 .link:hover{
     color: #29246A;
 }
+
+header .transparent {
+    padding: 5px 45px;
+}
+
+.top-row-navigation_items{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.top-row-navigation_items .social{
+    margin-right: 30px;
+}

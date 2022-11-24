@@ -4,13 +4,18 @@ import '../styles/Button.css'
 
 type PropsType = {
     children: string,
-    className: "dark" | "orange",
-    type: "button" | "submit" | "reset"
+    className: "dark" | "orange" | "purple" | "transparent",
+    type: "button" | "submit" | "reset",
+    textColor?: string,
 }
 
-function Button( { children, className, type }: PropsType ){
+function Button( { children, className, type, textColor }: PropsType ){
     return(
-        <button className={ `${ className } custom-btn` } type={ type }>{ children }</button>
+        <button className={ `${ className } custom-btn` }
+            style={{color:`${textColor} `, border:`1px solid ${textColor}`}}
+            type={ type }>
+            { children }
+        </button>
     )
 }
 

@@ -8,6 +8,7 @@ type PropsType = {
     title: string,
     percent: string,
     color: string,
+    
 }
 
 function TariffsCard(  { title,percent,color }:PropsType ){
@@ -19,7 +20,7 @@ function TariffsCard(  { title,percent,color }:PropsType ){
             <div className="card-body">
                 <p className="card-price"><span style={ percent.length > 5 ? { fontSize: '22px', lineHeight: '25px'} : {}}>{ percent }</span>в день</p>
                 <div className="card-link">
-                    <Link to=''>
+                    <Link to={`${title}-agreement`}>
                         Полные условия <CheckMark/>
                     </Link>
                 </div>

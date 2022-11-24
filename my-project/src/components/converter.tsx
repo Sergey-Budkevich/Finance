@@ -61,7 +61,7 @@ useEffect( () => {
                             <label >From</label>
                             <select value={ currentCurrency } onChange={ e => setCurrentCurrency(e.target.value) }>
                                 {
-                                    currencyList.length && currencyList.map( item => 
+                                    !!currencyList.length && currencyList.map( item => 
                                         <option key={item} value={item} >{item}</option> )
                                 }
                             </select>
@@ -70,8 +70,8 @@ useEffect( () => {
                             <label >To</label>
                             <select value={ desiredCurrency }  onChange={ e => setDesiredCurrency( e.target.value )}>
                                 {
-                                    currencyList.length ? currencyList.map( item => 
-                                        <option key={item} value={item} >{item}</option> ) : ''
+                                    !!currencyList.length && currencyList.map( item => 
+                                        <option key={item} value={item} >{item}</option> )
                                 }
                             </select>
                         </div>

@@ -9,8 +9,7 @@ const options = {
     }
 }
 
-
-// Promise<dlfkdlfkdlfk>
+// перенести в сервис
 export const fetchCoinList:any= createAsyncThunk(
     'cryptoCoinList/fetchCoinList',
     async function ([pageNumber,limit]:number[], { rejectWithValue }) {
