@@ -1,12 +1,15 @@
 import React from 'react'
 import '../styles/Logo.css'
 
+type PropsType = {
+    fontSize?: string
+}
 
-function Logo(){
+function Logo( {fontSize}:PropsType ){
     return(
         <div className='logo'>
             <img src='./images/logo.png' alt='logo' width="48px" height="50px" />
-            <p className='logo-name'>Uroboros Investment</p>
+            <p className='logo-name' style={{fontSize:`${fontSize}`}}>Uroboros Investment</p>
         </div>
     )
 }

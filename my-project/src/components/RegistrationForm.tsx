@@ -12,7 +12,7 @@ function RegistrationForm() {
         <div className='registration-wrapper'>
             <div className='registration'>
                 <h2 className='title registration_title'>Регистрация</h2>
-                <form className='registration_form' action="">
+                <form className='registration_form' action="http://localhost:5000/registration">
                     <Input classname='email-input' name='email' type="email"  placeholder="Email" requared={true}></Input>
                     <Input type="tel" name='tel' requared={false} placeholder="Телефон" classname="tel-input"></Input>
                     <Input type="password" name='password' requared={true} placeholder="Создайте пароль" classname="password-input"></Input>

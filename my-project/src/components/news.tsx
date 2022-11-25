@@ -8,7 +8,7 @@ import LoaderSpinner from './LoaderSpinner'
 
 
 
-function NewsBlock(){
+function News(){
 
 const dispatch = useAppDispatch()
 const {newsList, status} = useAppSelector(state => state.newsList)
@@ -49,4 +49,4 @@ useEffect( () => {
     )
 }
 
-export default NewsBlock
+export default News
