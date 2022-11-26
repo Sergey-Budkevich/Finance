@@ -15,18 +15,23 @@ import AppQuestions from './components/AppQuestions';
 import FeedbackForm from './components/FeedbackForm';
 import Intro from './components/Intro';
 import News from './components/News';
+import Balance from './components/Balance';
+import BalanceAnalytics from './components/BalanceAnalytics';
 
 function App() {
 
   return (
     <div className="App">
       <Routes>
-        {/* вопрос по вложенности фидбека */}
         <Route path='/' element={<MainLayout/>}>
           <Route path='/' element={<h1 className='main-title'>Добро пожаловать в Uroboros Club!</h1>}></Route>
           <Route path='crypto-currency' element={<CoinList />}></Route>
           <Route path='FAQ' element={<AppQuestions/>}>
             <Route path='feedback' element={<FeedbackForm/>}></Route>
+          </Route>
+          <Route path='crypto-graph' element={<CoinGraph/>}></Route>
+          <Route path='balance' element={<Balance/>}>
+            <Route path='analytics' element={<BalanceAnalytics/>}></Route>
           </Route>
         </Route>
       </Routes>

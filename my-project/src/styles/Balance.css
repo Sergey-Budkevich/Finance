@@ -1,0 +1,32 @@
+.balance{
+    padding: 50px 0;
+}
+
+.balance_container{
+    padding: 30px 15px;
+    background-color: #FFF;
+    border-radius: 12px ;
+    background: linear-gradient(200.98deg, rgb(207, 228, 255) -87.28%, rgb(255, 255, 255) 129.35%);
+
+}
+
+.balance_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 45px;
+}
+.balance .link{
+    padding: 12px 45px;
+    text-align: center;
+}
+.balance .link:hover{
+    scale: none;
+}
+.balance .link:active{
+    opacity: 0.7;
+}
+.balance .active{
+    border: 1px solid #4D92EB;
+    border-radius: 30px;
+}

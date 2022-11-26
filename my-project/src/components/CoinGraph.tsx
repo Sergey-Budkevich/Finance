@@ -65,7 +65,7 @@ useEffect (()=> {
     return (
         <section className='coin-graph'>
             <Content>
-                <div className='container'>
+                <div className='coin-graph_container'>
                     <Line options={ChartOptions} data={data}></Line>
                     <div className='coins-block' >
                         <h2 className='title coin-block_title'>Топ {limit} монет</h2>

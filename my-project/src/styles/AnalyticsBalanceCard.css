@@ -1,0 +1,62 @@
+.balance-card{
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+    border-radius: 10px;
+    width: 33%;
+    display: flex;
+    padding: 15px 25px 25px;
+    background-color: #FFF;
+    column-gap: 20px;
+}
+
+.balance-card_info{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    max-width: calc(50% - 20px / 2);
+    width: 100%;
+    row-gap: 15px;
+    align-items: center;
+}
+
+.balance-card_title-block{
+    max-width: calc(50% - 20px / 2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 15px;
+}
+
+.balance-card_increase{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 7px;
+}
+
+.balance-card_balance{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    color: #934DFF;    
+}
+
+.balance-card_increase span{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    /* color: #27AE60; */
+}
+
+.balance-card_title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #4F4F4F;
+}

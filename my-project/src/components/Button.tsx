@@ -4,7 +4,7 @@ import '../styles/Button.css'
 
 type PropsType = {
     children: string,
-    className: "dark" | "orange" | "purple" | "transparent",
+    className: "dark" | "orange" | "purple" | "transparent" | "light",
     type: "button" | "submit" | "reset",
     textColor?: string,
 }
