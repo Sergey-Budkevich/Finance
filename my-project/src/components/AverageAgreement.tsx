@@ -2,8 +2,6 @@ import React from 'react';
 import Content from './Content';
 import "../styles/TariffAgreement.css"
 
-
-
 function AverageAgreement( ) {
     return (
         <section className="tariff-agreement average">

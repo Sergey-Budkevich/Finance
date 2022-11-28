@@ -1,0 +1,81 @@
+.settings{
+    background-color: #F4F5F8;
+    padding: 40px 0 0;
+}
+
+.settings_container{
+    /* display: flex;
+    flex-direction: column;
+    row-gap: 25px; */
+    width: 100%;
+}
+
+.settings_form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.settings .data-block{
+    padding: 25px 35px 50px;
+    background-color: #FFF;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+}
+
+.settings .data-block-title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4F4F4F;
+}
+
+.settings .input-block{
+    margin-top: 17px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    column-gap: 30px;
+    row-gap: 18px;
+}
+
+.settings .input-block input, .input-block .social-input{
+    max-width: calc((100% - 30px ) / 2);
+    width: 100%;
+}
+
+.settings_top-row {
+    display: flex;
+    align-items: center;
+
+}
+
+.settings_image-block{
+    width: 124px;
+    height: 124px;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+}
+
+
+.settings_user-name{
+    margin-left: 40px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 43px;
+    color: #934DFF;
+}
+
+.settings .custom-btn{
+    height: 45px;
+    width: 295px;
+    margin: 60px auto;
+}

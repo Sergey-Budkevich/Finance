@@ -45,3 +45,7 @@ a:hover{
   line-height: 60px;
   color: #FFF;
 }
+
+.main-page{
+  position: relative;
+}

@@ -3,6 +3,10 @@
     
 }
 
+.app-questions .title{
+    color: #FFF;
+}
+
 .app-questions_header{
     display: flex;
     align-items: center;

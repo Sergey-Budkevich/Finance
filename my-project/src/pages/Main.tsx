@@ -12,7 +12,7 @@ import AverageAgreement from "../components/AverageAgreement";
 
 function Main(){
     return (
-        <>
+        <div className="main-page">
             <Intro />
             <Participation />
             <Tariffs/>
@@ -20,8 +20,7 @@ function Main(){
             <About/>
             <Agreement/>
             <Outlet/>
-
-        </>
+        </div>
     )
 }
 

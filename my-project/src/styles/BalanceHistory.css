@@ -1,0 +1,21 @@
+.balance-history_container{
+    padding: 80px 40px;
+}
+
+.balance-history_container table{
+    border-top: 2px solid #E0E0E0;
+    width: 100%;
+    border-collapse: collapse
+}
+
+.balance-history_container thead {
+    color: #934DFF;
+}
+.balance-history_container td,th{
+    border-bottom: 2px solid #E0E0E0;
+    padding: 15px 0;
+}
+
+.balance-history_container th,td {
+    text-align: center;
+}

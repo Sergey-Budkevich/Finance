@@ -28,17 +28,17 @@ function SideBar() {
                     <BargainingIcon/>
                     <span>Buy/Sell</span>
                 </Link>
-                <Link className='sidebar_rote' to='/'>
-                    <GamesIcon/>
-                    <span>Games</span>
-                </Link>
                 <Link className='sidebar_rote' to='crypto-currency'>
+                    <GamesIcon/>
+                    <span>Coin list</span>
+                </Link>
+                <Link className='sidebar_rote' to='investments'>
                     <InvestmentsIcon/>
                     <span>Investments</span>
                 </Link>
-                <Link className='sidebar_rote' to='/'>
+                <Link className='sidebar_rote' to='crypto-graph'>
                     <EducationIcon/>
-                    <span>Education</span>
+                    <span>Coin graph</span>
                 </Link>
                 <Link className='sidebar_rote' to='/'>
                     <RefferalsIcon/>
@@ -48,17 +48,17 @@ function SideBar() {
                     <FAQIcon/>
                     <span>FAQ</span>
                 </Link>
-                <Link className='sidebar_rote' to='/'>
+                <Link className='sidebar_rote' to='settings'>
                     <SettingsIcon/>
                     <span>Settings</span>
                 </Link>
-                <Link className='sidebar_rote' to='/'>
+                <Link className='sidebar_rote' to='about'>
                     <AboutIcon/>
                     <span>About</span>
                 </Link>
-                <Link className='sidebar_rote' to='crypto-graph'>
+                <Link className='sidebar_rote' to='roadmap'>
                     <RoadmapIcon/>
-                    <span>Coin graph</span>
+                    <span>Roadmap</span>
                 </Link>
             </nav>
             <div className='sidebar_line'></div>

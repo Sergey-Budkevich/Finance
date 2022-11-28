@@ -14,9 +14,9 @@ function Input( {type, requared, placeholder, children, classname, name}:PropsTy
 
     const [inputValue, setInputValue] = useState<any>("")
 
-useEffect ( ()=> {
-    console.log(inputValue);
-},[inputValue])
+// useEffect ( ()=> {
+//     console.log(inputValue);
+// },[inputValue])
 
 
     return (

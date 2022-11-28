@@ -1,7 +1,11 @@
 .user-agreement{
     padding: 70px 0;
 }
-
+.user-agreement_container{
+    padding: 45px 0;
+    background-color: #FFF;
+    border-radius: 12px;
+}
 .user-agreement_title{
     text-align: center;
 }
