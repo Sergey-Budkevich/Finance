@@ -20,7 +20,7 @@ function SideBar() {
                 <Logo fontSize='14px'/>
             </Link>
             <nav className='sidebar_rotes'>
-                <Link className='sidebar_rote' to='/balance'>
+                <Link className='sidebar_rote' to='balance/analytics'>
                     <BalanceIcon/>
                     <span>Balance</span>
                 </Link>
@@ -40,7 +40,7 @@ function SideBar() {
                     <EducationIcon/>
                     <span>Coin graph</span>
                 </Link>
-                <Link className='sidebar_rote' to='/'>
+                <Link className='sidebar_rote' to='refferals'>
                     <RefferalsIcon/>
                     <span>Refferals</span>
                 </Link>

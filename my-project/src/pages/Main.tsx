@@ -6,7 +6,6 @@ import Tariffs from "../components/Tariffs";
 import Participation from "../components/Participation";
 import About from "../components/About";
 import Agreement from "../components/Agreement";
-import AverageAgreement from "../components/AverageAgreement";
 
 
 

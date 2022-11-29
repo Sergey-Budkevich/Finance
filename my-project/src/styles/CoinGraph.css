@@ -24,7 +24,7 @@
     flex-wrap: wrap;
     column-gap: 5px;
     row-gap: 5px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .coin-card{

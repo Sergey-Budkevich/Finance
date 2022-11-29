@@ -6,7 +6,6 @@ import Layout from './Layout/Layout';
 import Main from './pages/Main';
 import CoinGraph from './components/CoinGraph';
 import UserAgreement from './components/UserAgreement';
-import AverageAgreement from './components/AverageAgreement';
 import MainLayout from './Layout/MainLayout';
 import AppQuestions from './components/AppQuestions';
 import FeedbackForm from './components/FeedbackForm';
@@ -18,6 +17,11 @@ import BalanceHistory from './components/BalanceHistory';
 import Investments from './components/Investments';
 import AppAbout from './components/AppAbout';
 import Settings from './components/Settings';
+import Refferals from './components/Refferals';
+import RegistrationForm from './components/RegistrationForm';
+import SignInForm from './components/SignInForm';
+import RecoveryPassword from './components/RecoveryPassword';
+import TariffAgreement from './components/TariffsAgreement';
 
 function App() {
 
@@ -29,13 +33,16 @@ function App() {
           <Route path='FAQ' element={<AppQuestions/>}>
             <Route path='feedback' element={<FeedbackForm/>}></Route>
           </Route>
-          <Route path='investments' element={<Investments/>}>
-            <Route path='average-agreement' element={<AverageAgreement/>}></Route>
-          </Route>
+          <Route path='investments' element={<Investments/>}></Route>
+          <Route path='average-agreement' element={<TariffAgreement name={'Average'}/>}></Route>
+          <Route path='elevated-agreement' element={<TariffAgreement name={'Elevated'}/>}></Route>
+          <Route path='upper-agreement' element={<TariffAgreement name={'Upper'}/>}></Route>
+          <Route path='supreme-agreement' element={<TariffAgreement name={'Supreme'}/>}></Route>
           <Route path='balance' element={<Balance/>}>
             <Route path='analytics' element={<BalanceAnalytics/>}></Route>
             <Route path='history' element={<BalanceHistory/>}></Route>
           </Route>
+          <Route path='refferals' element={<Refferals/>}></Route>
           <Route path='about' element={<AppAbout/>}></Route>
           <Route path='roadmap' element={<UserAgreement/>}></Route>
           <Route path='crypto-currency' element={<CoinList />}></Route>
@@ -51,10 +58,10 @@ function App() {
             <Route path='entry' element={<SignInForm/>}></Route>
             <Route path="recovery" element={<RecoveryPassword/>}></Route>
           </Route>
-          <Route path='average-agreement' element={<AverageAgreement/>}></Route>
-          <Route path='elevated-agreement' element={<AverageAgreement/>}></Route>
-          <Route path='upper-agreement' element={<AverageAgreement/>}></Route>
-          <Route path='supreme-agreement' element={<AverageAgreement/>}></Route>
+          <Route path='average-agreement' element={<TariffAgreement name={'Average'}/>}></Route>
+          <Route path='elevated-agreement' element={<TariffAgreement name={'Elevated'}/>}></Route>
+          <Route path='upper-agreement' element={<TariffAgreement name={'Upper'}/>}></Route>
+          <Route path='supreme-agreement' element={<TariffAgreement name={'Supreme'}/>}></Route>
           <Route path='crypto-currency' element={<CoinList />}></Route>
           <Route path='converter' element={<Converter/>}></Route>
           <Route path='crypto-news' element={<News/>}></Route>
@@ -67,16 +74,3 @@ function App() {
 }
 
 export default App;
-
-
-// <Routes>
-// <Route path='/' element={<Layout/>}>
-//   <Route path='crypto-currency' element={<CoinList />}></Route>
-//   <Route path='converter' element={<Converter/>}></Route>
-//   <Route path='crypto-news' element={<Newsk/>}></Route>
-//   <Route index path='/' element={<Main/>}></Route>
-//   <Route path='crypto-graph' element={<CoinGraph/>}></Route>
-//   <Route path='user-agreement' element={<UserAgreement/>}></Route>
-//   {/* <Route path='registration' element={<RegistrationForm/>}></Route> */}
-// </Route>
-// </Routes>

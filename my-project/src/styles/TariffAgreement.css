@@ -9,10 +9,11 @@
 }
 
 .average-container{
-    padding: 0 50px;
+    padding: 50px;
     display: flex;
     flex-direction: column;
-
+    background-color: #FFF;
+    border-radius: 12px;
 }
 .tariff-agreement .title{
     font-family: 'Rubik';

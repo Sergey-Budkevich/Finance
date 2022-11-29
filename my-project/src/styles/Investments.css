@@ -16,3 +16,109 @@
     column-gap: 25px;
     margin-top: 45px;
 }
+
+
+
+.programm_container{
+    padding: 30px 15px;
+    background-color: #F4F5F8;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.programm_title{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 43px;
+    color: #4F4F4F;
+}
+
+.programm_cards{
+    display: flex;
+    align-items: stretch;
+    margin-top: 55px;
+    column-gap: 20px;
+}
+
+.programm_card{
+    border-radius: 10px;
+    background-color: #FFF;
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.programm_card-header{
+    padding: 15px;
+    border-bottom: 2px solid #F4F5F8;;
+}
+
+
+.programm_card-title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4F4F4F;
+}
+
+.programm_card-body{
+    padding: 15px 20px 20px;
+    display: flex;
+    column-gap: 10px;
+    justify-content: space-between;
+}
+
+.programm_card-bar{
+    padding: 10px 5px;
+    background: linear-gradient(250.12deg, #B93CE8 -7.53%, #FF9AEA 82.03%);
+    border-radius: 5px;
+    width: calc(40% - 10px );
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    height: 42px;
+    align-self: center;
+}
+
+.programm_card-date{
+    width:60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #828282;
+}
+
+.programm_card:nth-of-type(2) .programm_card-body{
+    flex-direction: column;
+}
+
+.programm_card-text{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #828282;
+    text-align: center;
+}
+.programm_card-text span{
+    color: #4D92EB;
+}

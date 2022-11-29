@@ -7,13 +7,15 @@ type PropsType = {
     className: "dark" | "orange" | "purple" | "transparent" | "light",
     type: "button" | "submit" | "reset",
     textColor?: string,
+    onClick?: () => void
 }
 
-function Button( { children, className, type, textColor }: PropsType ){
+function Button( { children, className, type, textColor, onClick }: PropsType ){
     return(
         <button className={ `${ className } custom-btn` }
             style={{color:`${textColor} `, border:`1px solid ${textColor}`}}
-            type={ type }>
+            type={ type }
+            onClick={onClick}>
             { children }
         </button>
     )

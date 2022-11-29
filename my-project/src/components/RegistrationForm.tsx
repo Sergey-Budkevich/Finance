@@ -8,6 +8,7 @@ import Button from './Button';
 // cранвнение паролей
 
 function RegistrationForm() {
+    
     return (
         <div className='registration-wrapper'>
             <div className='registration'>

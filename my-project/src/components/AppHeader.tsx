@@ -14,7 +14,7 @@ function AppHeader() {
                     <h3 className='header_title'>Добро пожаловать, Иван!</h3>
                     <div className='header_info-block'>
                         <div className='header_social'>
-                            <a className='social-link' href="https://www.instagram.com/">
+                            <a href="https://www.instagram.com/">
                                 <InstagramIcon/>
                             </a>
                         </div>

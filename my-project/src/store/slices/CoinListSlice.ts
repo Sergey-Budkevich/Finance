@@ -92,4 +92,4 @@ export const coinListSlice = createSlice({
 
 export const { sortByPrice, sortByCapitalization, sortByVolume, sortByChange } = coinListSlice.actions
 
-export default coinListSlice.reducer
+// export default coinListSlice.reducer

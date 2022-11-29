@@ -7,14 +7,6 @@ import BalanceAnalytics from './BalanceAnalytics';
 
 function Balance() {
 
-    // костыль или как исправить?
-
-    // const navigate = useNavigate();
-
-    // useEffect( () => {
-    //     navigate("analytics")
-    // },[])
-
     return (
         <section className='balance'>
             <Content>

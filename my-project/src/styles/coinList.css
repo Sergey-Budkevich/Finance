@@ -1,5 +1,6 @@
 .coinlist{
     padding: 70px 0;
+    position: relative;
 }
 .coinlist-container{
     background-color: #FFF;
@@ -22,7 +23,6 @@
 
 .table-head tr{
     border-bottom: 1px solid #afc6e0;
-    
 }
 th{ 
     text-align: start; 
