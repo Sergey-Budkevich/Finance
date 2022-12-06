@@ -30,7 +30,7 @@ header {
     column-gap: 25px;
 }
 
-.link{
+header .link{
     color: white;
 }
 .link:hover{

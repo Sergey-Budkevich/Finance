@@ -14,7 +14,7 @@ function Main(){
         <div className="main-page">
             <Intro />
             <Participation />
-            <Tariffs/>
+            <Tariffs disabled={true}/>
             <Questions/>
             <About/>
             <Agreement/>

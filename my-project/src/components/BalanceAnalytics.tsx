@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import "../styles/BalanceAnalytics.css"
 import AnalyticsBalanceCard from './AnalyticsBalanceCard';
 import Button from './Button';
@@ -9,40 +9,22 @@ import CoinsIcon from './Icons/CoinsIcon';
 import LineGraphIcon from './Icons/LineGraphIcon';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler} from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { useAppSelector } from '../hooks/hooks';
+
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
 
 
 
 function BalanceAnalytics() {
+    const {transactionList,balance} = useAppSelector(state => state.userInfo)
+    
+    const actualDate = new Date().toLocaleString().slice(0,10);
 
-    let balance:any = [
-        {
-            date: "22.08.2021",
-            balance: 1
-        },
-        {
-            date: "23.08.2021",
-            balance: 12
-        },{
-            date: "24.08.2021",
-            balance:19
-        },{
-            date: "25.08.2021",
-            balance: 34 
-        },{
-            date: "27.08.2021",
-            balance: 22
-        },{
-            date: "29.08.2021",
-            balance: 10
-        },{
-            date: "30.08.2021",
-            balance: 51
-        }
-    ]
-    let labels:string[] = balance.map( (item: { date: string; }) => item.date);
+    const dayTransaction = transactionList.length ? transactionList.filter(item => item.date.slice(0,10) === actualDate) : null;
 
+
+    let labels:string[] = transactionList.map( (item) => item.date.slice(0,10));
     const ChartOptions = {
         responsive: true,
         plugins: {
@@ -55,13 +37,12 @@ function BalanceAnalytics() {
             },
         },
     };
-
     const data = {
         labels,
         datasets : [
             {
                 label: "Баланс",
-                data: balance.map( (item: { balance: string; }) => item.balance),
+                data: transactionList.map( (item) => item.currentBalance),
                 borderColor: 'rgb(147, 77, 255)',
                 backgroundColor: 'rgba(147, 77, 255, 0.5)',
                 tension: 0.15,
@@ -69,7 +50,6 @@ function BalanceAnalytics() {
             },
         ]
     }
-
 
     return (
         <div className='analytics'>
@@ -81,8 +61,8 @@ function BalanceAnalytics() {
                     <h3 className='analytics_balance-subtitle'>
                         <BalanceIcon/>Баланс UBR 
                     </h3>
-                    <h2 className='analytics_balance-title title'>10 UBR</h2>
-                    <Link className='analytics_balance-link' to={''}>
+                    <h2 className='analytics_balance-title title'>{balance} UBR</h2>
+                    <Link className='analytics_balance-link' to={'refill'}>
                         <Button className={'light'} type={'button'}>Пополнить</Button>
                     </Link>
                     <div className='analytics_balance-image'>
@@ -91,12 +71,15 @@ function BalanceAnalytics() {
                 </div>
             </div>
             <div className='analytics_bottom-row'>
-                    <AnalyticsBalanceCard balance={"-37"} increase={"-105"} time={'Сегодня'} icon={<CoinsIcon/>}/>
-                    <AnalyticsBalanceCard balance={"+37"} increase={"+105"} time={'Неделя'} icon={<BarsIcon/>}/>
-                    <AnalyticsBalanceCard balance={"+120"} increase={"+105"} time={'Месяц'} icon={<LineGraphIcon/>}/>
-                </div>
+                <AnalyticsBalanceCard time={'Сегодня'} icon={<CoinsIcon />} transactions={dayTransaction}/>
+                <AnalyticsBalanceCard time={'Неделя'} icon={<BarsIcon/>} balance={`${balance}`} transactions={dayTransaction}/>
+                <AnalyticsBalanceCard time={'Месяц'} icon={<LineGraphIcon/>} balance={`${balance}`} transactions={dayTransaction}/>
+            </div>
+            <Outlet/>
         </div>
     );
 }
 
 export default BalanceAnalytics;
+
+{/* <AnalyticsBalanceCard time={'Сегодня'} icon={<CoinsIcon />} balance={`${dayTransaction?.amount}`} transactions={dayTransaction}/> */}

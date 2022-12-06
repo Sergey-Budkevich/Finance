@@ -54,13 +54,12 @@
     overflow: hidden;
 }
 
-.programm_card-header{
-    padding: 15px;
-    border-bottom: 2px solid #F4F5F8;;
+.programm_card--product-header, .programm_card--invest-header{
+    padding: 10px 15px;
+    border-bottom: 2px solid #F4F5F8
 }
 
-
-.programm_card-title{
+.programm_card--product-title, .programm_card--invest-title{
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -69,18 +68,31 @@
     color: #4F4F4F;
 }
 
-.programm_card-body{
-    padding: 15px 20px 20px;
+.programm_card--product-body, .programm_card--invest-body{
     display: flex;
-    column-gap: 10px;
+    align-items: center;
     justify-content: space-between;
+    padding: 15px;
+    column-gap: 15px;
+}
+.programm_card--invest-body{
+    flex-direction: column;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #828282;
 }
 
-.programm_card-bar{
-    padding: 10px 5px;
+.programm_card--invest-text span{
+    color: #4D92EB;
+}
+
+.programm_card--product-bar{
+    padding: 5px 10px;
     background: linear-gradient(250.12deg, #B93CE8 -7.53%, #FF9AEA 82.03%);
     border-radius: 5px;
-    width: calc(40% - 10px );
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -88,16 +100,15 @@
     line-height: 20px;
     color: #FFFFFF;
     text-align: center;
-    height: 42px;
-    align-self: center;
+    max-width: 90px;
+    width: 100%;
 }
 
-.programm_card-date{
-    width:60%;
+.programm_card--product-date{
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    flex: 1;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -106,19 +117,132 @@
     color: #828282;
 }
 
-.programm_card:nth-of-type(2) .programm_card-body{
-    flex-direction: column;
+.programm_card--balance-header{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    background: linear-gradient(0deg, #934DFF, #934DFF);
+    justify-content: space-between;
 }
 
-.programm_card-text{
+.programm_card--balance-title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #EFF6FF;
+    flex: 1;
+}
+
+.programm_card--balance-bar{
+    flex: 1;
+    padding: 5px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #29246A;
+    text-align: center;
+    max-width: 90px;
+}
+
+.programm_card--balance-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px 15px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     color: #828282;
-    text-align: center;
 }
-.programm_card-text span{
-    color: #4D92EB;
+
+.programm_referal{
+    padding: 30px 30px 30px 50px;
+    margin-top: 65px;
+    background: #FFFFFF;
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+    border-radius: 10px;
+    position: relative;
+}
+
+.programm_referal-title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4F4F4F;
+}
+
+.programm_referal-link{
+    background: #FFFFFF;
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+    border-radius: 10px;
+    margin-top: 95px;
+    display: flex;
+    column-gap: 30px;
+    padding: 25px 40px 0;
+}
+
+.programm_referal-info{
+    flex:1
+}
+
+.programm_referal-title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4F4F4F;
+}
+
+.programm-referal-info_items{
+    margin-top: 15px;
+    display: flex;
+    align-items: stretch;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    padding-bottom: 40px;
+}
+.programm-referal-info_link{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #4F4F4F;
+    border: 1px solid #4D92EB;
+    border-radius: 50px;
+    padding: 10px 0;
+    max-width: 310px;
+    width: 100%;
+}
+
+.programm-referal-info_items .purple {
+    width: 190px;
+    height: 47px;
+}
+
+.programm-referal-info_image{
+    max-width: 230px;
+    width: 100%;
+    position: relative;
+}
+
+.programm-referal-info_image img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

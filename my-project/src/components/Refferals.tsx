@@ -3,8 +3,11 @@ import Content from './Content';
 import "../styles/Refferals.css"
 import Button from './Button';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../hooks/hooks';
 
 function Refferals() {
+const {refLink} = useAppSelector(state => state.userInfo)
+
     return (
         <section className='refferals'>
             <Content>
@@ -50,8 +53,8 @@ function Refferals() {
                         <div className='link-block_info'>
                             <h4 className='link-block_title'>Ваша реферальная ссылка:</h4>
                             <div className="info_items">
-                                <p className='info_link'>https://uroboros33314552</p>
-                                <Button className={'purple'} type={'button'} >Скопировать</Button>
+                                <p className='info_link'>{refLink}</p>
+                                <Button className={'purple'} type={'button'} onClick={() => navigator.clipboard.writeText(`${refLink}`)}>Скопировать</Button>
                             </div>
                         </div>
                         <div className='link-block_image'>

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import "../styles/Input.css"
 
 type PropsType = {
-    type: "password" | "email" | "text" | "tel",
+    type: "password" | "email" | "text" | "tel" | 'number',
     requared: boolean,
     placeholder: string,
     children?: string,
-    classname: string,
+    classname?: string,
     name?: string,
 }
 

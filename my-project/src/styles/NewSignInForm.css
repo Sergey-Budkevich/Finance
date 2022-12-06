@@ -1,0 +1,90 @@
+.newsign-in-wrapper{
+    min-width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsign-in-wrapper::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #29246A;
+    opacity: 0.3;
+}
+
+.newsign-in{
+    position: relative;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 490px;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 2px 4px 30px #6F6D83;
+    border-radius: 10px;
+    padding: 45px 50px 50px;
+}
+
+.newsign-in > a {
+    position: absolute;
+    top:15px;
+    right: 30px;
+    color: black;
+    font-size: 22px;
+    font-weight: 900;
+    scale: none;
+}
+.newsign-in > a:hover{
+    color: red;
+}
+.newsign-in_form{
+    width: 100%;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.newsign-in_title{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #29246A;
+}
+
+.form_password-block{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.newsign-in .input{
+    width: 100%;
+}
+
+.newsign-in_form .purple {
+    width: 100%;
+    height: 45px;
+    margin-top: 40px;
+}
+
+.newsign-in_subtitle{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.newsign_message{
+    color: red;
+    margin-top: 15px;
+}

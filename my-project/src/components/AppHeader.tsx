@@ -5,13 +5,17 @@ import InstagramIcon from './Icons/InstagramIcon';
 import NotificationIcon from './Icons/NotificationIcon';
 import { Link } from 'react-router-dom';
 import "../styles/AppHeader.css"
+import { useAppSelector } from '../hooks/hooks';
 
 function AppHeader() {
+    const {email} = useAppSelector(state => state.userInfo)
+    const symbolIndex = email?.indexOf('@');
+
     return (
-        <header className='app-header'>
+        <div className='app-header'>
             <Content>
                 <div className='header_container'>
-                    <h3 className='header_title'>Добро пожаловать, Иван!</h3>
+                    <h3 className='header_title'>Добро пожаловать, {email ? email.slice(0,symbolIndex) : "Гость"} !</h3>
                     <div className='header_info-block'>
                         <div className='header_social'>
                             <a href="https://www.instagram.com/">
@@ -29,7 +33,7 @@ function AppHeader() {
                     </div>
                 </div>
             </Content>
-        </header>
+        </div>
     );
 }
 

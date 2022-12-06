@@ -24,7 +24,10 @@ function CoinGraph() {
     const {coinList, status, error } = useAppSelector(state => state.cryptoCoinList)
     let limit:number = 20;
     let [coin,setCoin] = useState<CryptoCoin>()
-    let labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    // let labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let labels = coin?.sparkline.map( (_, i) => i + 1 );
+    
+    
 
     const ChartOptions = {
         responsive: true,
@@ -44,7 +47,8 @@ function CoinGraph() {
         datasets : [
             {
                 label: coin?.name || '',
-                data: coin?.sparkline.filter( (_ ,i) => i % 2 === 0),
+                // data: coin?.sparkline.filter( (_ ,i) => i % 2 === 0),
+                data : coin?.sparkline,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 tension: 0.15,
@@ -54,8 +58,8 @@ function CoinGraph() {
     }
 
 useEffect (()=> {
-    (async function ( ) {
-        const response = await fetch(`https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd`, options);
+    (async function () {
+        const response = await fetch(`https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd?timePeriod=1y`, options);
         const data = await response.json();
         setCoin(data.data.coin)
 }())
