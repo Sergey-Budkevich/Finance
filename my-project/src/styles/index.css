@@ -1,10 +1,41 @@
 @import url('./fonts/fonts.css');
 
+:root{
+--active-sidebar-link-background: #4D92EB;
+
+/* fonts*/
+--first-font: 'Rubik';
+--second-font: 'Open Sans';
+
+--font-weight-regular: 400;
+--font-weight-medium: 500;
+--font-weight-bold: 700;
+--font-weight-SemiBold: 600;
+
+/* colors */
+--color-white: #FFF;
+--color-darkBlue: #29246A;
+--color-darkGray: #4F4F4F;
+--color-violet: #934DFF;
+--color-blue: #4D92EB;
+--color-red: #FE5C73;
+--color-green: #27AE60;
+--color-orange: #F9A85D;
+--color-light: #41e4ec;
+
+/* sizes */
+--title-size: 25px;
+--text-normal-size: 18px;
+--text-small-size: 14px;
+
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans';
+  font-family: var(--second-font);
+  font-size: var(--text-normal-size);
 }
 body{
   width: 100%;
@@ -29,13 +60,14 @@ main{
 }
 a{
   text-decoration: none;
-  color: rgb(66, 158, 249);
+  /* color: rgb(66, 158, 249); */
+  color: white;
 }
-/* a:hover{
+a:hover{
   scale: 1.08;
-} */
+}
 
-.main-title{
+/* .main-title{
   margin-top: 20%;
   text-align: center;
   font-family: 'Rubik';
@@ -44,7 +76,7 @@ a{
   font-size: 55px;
   line-height: 60px;
   color: #FFF;
-}
+} */
 
 .main-page{
   position: relative;
@@ -61,3 +93,11 @@ a{
 .disabled:active{
   opacity: 0.4 !important;
 }
+
+
+.link{
+  color: var(--color-blue);
+}
+/* .link:hover{
+  scale: 1.08;
+} */

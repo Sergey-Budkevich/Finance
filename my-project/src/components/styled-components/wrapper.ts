@@ -1,32 +1,11 @@
 import styled from "styled-components";
 
-export const CardWrapper = styled.div`
-    min-width: 100vw;
-    min-height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:after{
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background-color: #29246A;
-        opacity: 0.3;
-    }
-`
-
-type CardProps = {
+type PopUpProps = {
     maxWidth?: string,
     zIndex?: number,
     padding?: string
 }
-
-export const Card = styled.div<CardProps>`
+export const PopUp = styled.div<PopUpProps>`
     position: relative;
     max-width: ${props => props.maxWidth ||  '490px'};
     width: 100%;
@@ -39,14 +18,19 @@ export const Card = styled.div<CardProps>`
 
 type FlexProps = {
     flexDirection?: 'column' | 'row',
-    alignItems?: 'stretch' | 'center' | 'start' | 'end',
+    alignItems?: 'stretch' | 'center' | 'flex-start' | 'flex-end',
     justifyContent?: 'space-between' | 'center',
     wrap?: 'wrap',
+    flex?: number,
+    columnGap?: string,
 }; 
-
 export const Flex = styled.div<FlexProps>`
     display: flex;
-    flex-direction: ${props => props.flexDirection || 'row'};
-    align-items: ${props => props.alignItems || 'center'};
-    flex-wrap: ${props => props.wrap || 'no-wrap'}
+    ${props => props.flexDirection && `flex-direction: ${props.flexDirection}` };
+    ${props => props.alignItems && `align-items: ${props.alignItems}` };
+    ${props => props.wrap && `flex-wrap: ${props.wrap}`};
+    ${props => props.flex && `flex: ${props.flex}` };
+    ${props => props.flex && `flex: ${props.flex}` };
+    ${props => props.columnGap && `column-gap: ${props.columnGap}` };
 `
+

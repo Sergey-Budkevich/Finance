@@ -11,15 +11,6 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 
 function CoinGraph() {
-
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'd3c4ceeefamsh4ecae7738c6a06dp19db7fjsnd69594cea44d',
-            'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-        }
-    }
-
     const dispatch = useAppDispatch();
     const {coinList, status, error } = useAppSelector(state => state.cryptoCoinList)
     let limit:number = 20;
@@ -27,8 +18,6 @@ function CoinGraph() {
     // let labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let labels = coin?.sparkline.map( (_, i) => i + 1 );
     
-    
-
     const ChartOptions = {
         responsive: true,
         plugins: {
@@ -59,6 +48,13 @@ function CoinGraph() {
 
 useEffect (()=> {
     (async function () {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'd3c4ceeefamsh4ecae7738c6a06dp19db7fjsnd69594cea44d',
+                'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+            }
+        }
         const response = await fetch(`https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd?timePeriod=1y`, options);
         const data = await response.json();
         setCoin(data.data.coin)

@@ -5,11 +5,10 @@ type PopUpTitleProps = {
 }
 
 export const PopUpTitle = styled.h2<PopUpTitleProps>`
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
+    font-family: var(--first-font);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--title-size);
     line-height: 30px;
     text-align: ${props => props.textAlign || 'center'};
-    color: #29246A;
+    color: var(--color-darkBlue);
 `

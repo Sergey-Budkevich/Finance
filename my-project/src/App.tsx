@@ -23,13 +23,17 @@ import Сonfirmation from './components/Сonfirmation';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
 import NewRegistrationForm from './components/NewRegistrationForm';
 import NewSignInForm from './components/NewSignInForm';
-import {changeCurrentTariff,signIn } from './store/slices/UserSlice';
+import {signIn } from './store/slices/UserSlice';
 import Refill from './components/Refill';
+import styled from 'styled-components';
 
 
 
 function App() {
   const dispatch = useAppDispatch();
+const {accessToken} = useAppSelector(state => state.userInfo)
+
+
   useEffect(()=>{
     const userInfo = localStorage.getItem('userInfo') || null
     if(userInfo){
@@ -37,20 +41,18 @@ function App() {
       console.log(JSON.parse(userInfo));
     }
   },[])
-  
-const {accessToken,confirmTariff} = useAppSelector(state => state.userInfo)
 
   return (
     <div className="App">
       {  !!accessToken ?
             <Routes>
             <Route path='/' element={<MainLayout/>}>
-              <Route path='/' element={<h1 className='main-title'>Добро пожаловать в Uroboros Club!</h1>}></Route>
+              <Route path='/' element={<MainTitle>Добро пожаловать в Uroboros Club!</MainTitle>}></Route>
               <Route path='FAQ' element={<AppQuestions/>}>
                 <Route path='feedback' element={<FeedbackForm/>}></Route>
               </Route>
               <Route path='investments' element={<Investments/>}>
-                <Route path='confirmation' element={<Сonfirmation confirm={()=>dispatch(changeCurrentTariff(confirmTariff))} nonConfirm={'/investments'}/>}></Route>
+                <Route path='confirmation' element={<Сonfirmation nonConfirmAdress={'/investments'}/>}></Route>
               </Route>
               <Route path='average-agreement' element={<TariffAgreement name={'Average'}/>}></Route>
               <Route path='elevated-agreement' element={<TariffAgreement name={'Elevated'}/>}></Route>
@@ -93,5 +95,15 @@ const {accessToken,confirmTariff} = useAppSelector(state => state.userInfo)
     </div>
   );
 }
+
+const MainTitle = styled.h1`
+  margin-top: 20%;
+  text-align: center;
+  font-family: var(--first-font);
+  font-weight: 500;
+  font-size: 55px;
+  line-height: 60px;
+  color: #FFF;
+`
 
 export default App;

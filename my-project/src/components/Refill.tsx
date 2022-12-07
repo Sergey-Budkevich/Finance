@@ -6,7 +6,7 @@ import { changeTransactionList } from '../store/slices/UserSlice';
 import Button from './Button';
 import Input from './Input';
 import { PopUpTitle } from './styled-components/fonts';
-import { Card, CardWrapper, Flex } from './styled-components/wrapper';
+import { Flex, PopUp } from './styled-components/wrapper';
 
 
 function Refill() {
@@ -40,7 +40,7 @@ function Refill() {
 
     return (
         <CardWrapper>
-            <Card zIndex={999} padding={'45px 50px 50px'}>
+            <PopUp zIndex={999} padding={'45px 50px 50px'}>
                 <Flex flexDirection='column'>
                     <PopUpTitle>Пополнение баланса</PopUpTitle>
                     <RefillForm>
@@ -53,10 +53,30 @@ function Refill() {
                         <Link className='exit' to="/balance/analytics">x</Link>
                     </LinkWrapper>
                 </Flex>
-            </Card>
+            </PopUp>
         </CardWrapper>
     );
 }
+
+const CardWrapper = styled.div`
+    min-width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #29246A;
+        opacity: 0.3;
+    }
+`
 
 const RefillForm = styled.div`
     width: 100%;
