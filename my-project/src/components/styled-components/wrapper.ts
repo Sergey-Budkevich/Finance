@@ -30,7 +30,13 @@ export const Flex = styled.div<FlexProps>`
     ${props => props.alignItems && `align-items: ${props.alignItems}` };
     ${props => props.wrap && `flex-wrap: ${props.wrap}`};
     ${props => props.flex && `flex: ${props.flex}` };
-    ${props => props.flex && `flex: ${props.flex}` };
+    ${props => props.justifyContent && `justify-content: ${props.justifyContent}` };
     ${props => props.columnGap && `column-gap: ${props.columnGap}` };
 `
 
+export const Content = styled.div`
+    max-width: calc(1170px + 16px * 2);
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+`

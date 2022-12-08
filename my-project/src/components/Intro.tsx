@@ -14,7 +14,7 @@ function Intro(){
                     <h1 className='intro-title title'>Инвеструйте с помощью Uroboros Investment</h1>
                     <p className='intro-text'>Без открытия юр. лица и с гарантией замены аккаунта в случае блокировки по нашей вине</p>
                     <Link to="registration">
-                        <Button className='dark' type='button'>Регистрация</Button>
+                        <Button className='dark' type='button' width='295px' height='50px'>Регистрация</Button>
                     </Link>
                 </div>
                 <div className='image-block'>

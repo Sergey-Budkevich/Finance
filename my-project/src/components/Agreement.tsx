@@ -3,6 +3,7 @@ import Button from './Button'
 import Content from './Content'
 import '../styles/Agreement.css'
 import { Link } from 'react-router-dom'
+import CustomLink from './base/CustomLink'
 
 
 function Agreement(){
@@ -15,9 +16,9 @@ function Agreement(){
                     </div>
                     <div className='agreement-block'>
                         <h2 className='title agreement-title'>Пользовательское соглашение</h2>
-                        <Link to={'user-agreement'}>
-                            <Button className={'orange'} type={'button'}>Ознакомиться</Button> 
-                        </Link>              
+                        <CustomLink to={'user-agreement'}>
+                            <Button className={'orange'} width='290px' type={'button'}>Ознакомиться</Button> 
+                        </CustomLink>              
                     </div>
                 </div>
             </Content>

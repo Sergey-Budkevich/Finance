@@ -5,6 +5,7 @@ import '../styles/TariffsCard.css'
 import CheckMark from "./Icons/CheckMark";
 import { useAppDispatch } from "../hooks/hooks";
 import { confirmTariff } from "../store/slices/UserSlice";
+import CustomLink from "./base/CustomLink";
 
 type PropsType = {
     title: "average" | "elevated" | "upper" | "supreme",
@@ -30,9 +31,9 @@ function TariffsCard(  { title,percent,color, disabled }:PropsType ){
                         Полные условия <CheckMark/>
                     </Link>
                 </div>
-                <Link to="confirmation" className="card-confirm-link">
-                    <Button disabled={disabled} className="dark" type="button" onClick={() => dispatch(confirmTariff(title))} >Выбрать</Button>
-                </Link>
+                <CustomLink to="confirmation" className="card-confirm-link">
+                    <Button disabled={disabled} className="dark" type="button" width="100%" onClick={() => dispatch(confirmTariff(title))} >Выбрать</Button>
+                </CustomLink>
             </div>
         </div>
     )

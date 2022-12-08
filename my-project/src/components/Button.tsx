@@ -2,17 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 type PropsType = {
-    children: string,
+    children: any,
     className: "dark" | "orange" | "purple" | "transparent" | "light",
     type: "button" | "submit" | "reset",
     textColor?: string,
     onClick?: () => void,
     disabled?: true | false,
     width?: string,
-    height?: string
+    height?: string,
+    border?: string,
 }
 
-function Button( { children, className, type, textColor, onClick, disabled, width, height }: PropsType ){
+
+function Button( { children, className, type, textColor, onClick, disabled, width, height, border }: PropsType ){
     return(
         <CustomButton className={ `${disabled ? 'disabled' : ''}` }
             style={{backgroundColor: className === 'dark' ? 'var(--color-darkBlue)' : 
@@ -20,8 +22,9 @@ function Button( { children, className, type, textColor, onClick, disabled, widt
             className === 'purple' ? 'var(--color-violet)' : 
             className === 'light' ? 'var(--color-light)' : 'transparent' ,
             color: `${textColor}`,
-            width: width,
-            height: height
+            width: `${width}`,
+            height: `${height}`,
+            border:`${border}`,
             }}
             type={ type }
             onClick={onClick}
@@ -30,13 +33,6 @@ function Button( { children, className, type, textColor, onClick, disabled, widt
         </CustomButton>
     )
 }
-{/* <CustomButton className={ `${ className } custom-btn ${disabled ? 'disabled' : ''}` }
-            style={{color:`${textColor} `, border:`1px solid ${textColor}`}}
-            type={ type }
-            onClick={onClick}
-            disabled={disabled}>
-            { children }
-        </CustomButton> */}
 
 const CustomButton = styled.button`
     border-radius: 30px;

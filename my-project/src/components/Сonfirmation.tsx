@@ -24,8 +24,8 @@ function Сonfirmation({ nonConfirmAdress}:PropsType) {
             <div className='confirmation'>
                 <h2 className='title confirmation_title'>Вы уверены что хотите выбрать тариф "{confirmTariff}"?</h2>
                 <div className='confirmation_buttons'>
-                    <Button onClick={ ()=>confirmation()} className={'orange'} type={'button'}>Да</Button>
-                    <Button onClick={()=>navigate(nonConfirmAdress)} className={'purple'} type={'button'}>Нет</Button>
+                    <Button width={'120px'} onClick={ ()=>confirmation()} className={'orange'} type={'button'}>Да</Button>
+                    <Button width={'120px'} onClick={()=>navigate(nonConfirmAdress)} className={'purple'} type={'button'}>Нет</Button>
                 </div>
                 <button type='button' className='non-confimr-btn' onClick={()=>navigate(nonConfirmAdress)}>x</button>
             </div>

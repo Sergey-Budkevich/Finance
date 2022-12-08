@@ -1,32 +1,47 @@
 import React, { useEffect } from 'react';
 import Content from './Content';
-import "../styles/Balance.css"
-import Button from './Button';
-import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
-import BalanceAnalytics from './BalanceAnalytics';
+import {  Outlet, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { Flex } from './styled-components/wrapper';
+import { Title } from './styled-components/fonts';
+import CustomLink from './base/CustomLink';
 
 function Balance() {
-
+console.log(window.location);
+const navigate = useNavigate()
+useEffect(()=> {
+    navigate('analytics')
+},[])
     return (
-        <section className='balance'>
+        <BalanceWrapper>
             <Content>
-                <div className="balance_container">
-                    <div className='balance_header'>
-                        <h2 className='balance_title title'>Баланс</h2>
-                        <NavLink className="link" to={"analytics"}>
-                            Аналитика доходности
-                        </NavLink>
-                        <NavLink className="link" to={"history"}>
-                            История пополнения и вывода
-                        </NavLink>
-                    </div>
-                    <div className='balance_body'>
+                <BalanceContainer>
+                    <Content>
+                        <Flex alignItems='stretch' justifyContent='space-between' columnGap='45px'>
+                            <Title color='var(--color-darkGray)'>Баланс</Title>
+                            <CustomLink  to={'analytics'} btnLink={true} textColor={'var(--color-blue)'} padding={'0 45px'}>
+                                Аналитика доходности
+                            </CustomLink>
+                            <CustomLink to={"history"} btnLink={true} textColor={'var(--color-blue)'} padding={'0 45px'}>
+                                История пополнения и вывода
+                            </CustomLink>
+                        </Flex>
                         <Outlet/>
-                    </div>
-                </div>
+                    </Content>
+                </BalanceContainer>
             </Content>
-        </section>
+        </BalanceWrapper>
     );
 }
+
+const BalanceWrapper = styled.section`
+    padding: var(--app-section-padding) 0;
+`
+const BalanceContainer = styled.div`
+    padding: 30px 0;
+    background-color: var(--color-milk);
+    border-radius: 12px ;
+`
+
 
 export default Balance;

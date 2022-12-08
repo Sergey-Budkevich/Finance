@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../styles/NewRegistrationForm.css"
+import Button from './Button';
 
 function NewRegistrationForm() {
     const navigate = useNavigate();
@@ -43,7 +44,7 @@ function NewRegistrationForm() {
                     <input className='input' type="password" placeholder='Создайте пароль' value={userPassword} onChange={e => setUserPassword(e.target.value)}/>
                     <input className='input' placeholder='Повторите пароль' type="password" value={secondUserPassword} onChange={e => setSecondUserPassword(e.target.value)}/>
                     <p style={error ? {display:'block'} : {display:'none'}} className='newregistration_message'>Данные введены не корректно</p>
-                    <button onClick={()=>registration()} className='purple custom-btn' type='button'>Зарегистрироваться</button>
+                    <Button onClick={()=>registration()} className='purple' type='button'>Зарегистрироваться</Button>
                 </div>
 
             <div className='auth-block'>

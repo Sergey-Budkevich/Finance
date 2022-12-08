@@ -1,8 +1,6 @@
 @import url('./fonts/fonts.css');
 
 :root{
---active-sidebar-link-background: #4D92EB;
-
 /* fonts*/
 --first-font: 'Rubik';
 --second-font: 'Open Sans';
@@ -22,12 +20,17 @@
 --color-green: #27AE60;
 --color-orange: #F9A85D;
 --color-light: #41e4ec;
+--color-milk: #F4F5F8;
 
 /* sizes */
---title-size: 25px;
+--subtitle-size: 25px;
+--title-size: 45px;
 --text-normal-size: 18px;
 --text-small-size: 14px;
 
+
+/* padding */
+--app-section-padding: 50px;
 }
 
 *{
@@ -52,16 +55,15 @@ main{
   margin: 0 auto;
 }
 
-.title{
+/* .title{
   font-weight: 700;
   font-size: 45px;
   line-height: 53px;
   font-family: 'Rubik';
-}
+} */
 a{
   text-decoration: none;
-  /* color: rgb(66, 158, 249); */
-  color: white;
+  color: rgb(66, 158, 249);
 }
 a:hover{
   scale: 1.08;

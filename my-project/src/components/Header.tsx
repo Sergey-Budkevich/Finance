@@ -5,6 +5,7 @@ import '../styles/Header.css'
 import Logo from './Logo'
 import InstagramIcon from './Icons/InstagramIcon'
 import Button from './Button'
+import CustomLink from './base/CustomLink'
 
 
 function Header(){
@@ -24,9 +25,10 @@ function Header(){
                                     <InstagramIcon/>
                                 </a>
                             </div>
-                            <Link to="entry">
-                                <Button className={"transparent"} type={'button'} textColor={"#FFF"}>Войти</Button>
-                            </Link>
+                            <CustomLink btnLink={true} border={true} width={'140px'} textColor={'var(--color-white)'} to="entry">
+                                {/* <Button className={"transparent"} type={'button'}>Войти</Button> */}
+                                Войти
+                            </CustomLink>
                         </div>
                     </div>
                     <div className='bottom-row-navigation'>

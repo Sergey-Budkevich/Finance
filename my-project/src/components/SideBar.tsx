@@ -24,7 +24,7 @@ function SideBar() {
                 </Link>
                 <Navbar>
                     <Flex flexDirection='column' alignItems='flex-start'>
-                        <CustomLink sidebarLink={true} to='balance/analytics'>
+                        <CustomLink sidebarLink={true} to='balance'>
                             <BalanceIcon/>
                             <span>Balance</span>
                         </CustomLink>
