@@ -26,21 +26,22 @@ import NewSignInForm from './components/NewSignInForm';
 import {signIn } from './store/slices/UserSlice';
 import Refill from './components/Refill';
 import styled from 'styled-components';
+import Agreement from './components/Agreement';
 
 
 
 function App() {
   const dispatch = useAppDispatch();
-const {accessToken} = useAppSelector(state => state.userInfo)
+const {accessToken} = useAppSelector(state => state.userInfo);
 
 
   useEffect(()=>{
     const userInfo = localStorage.getItem('userInfo') || null
     if(userInfo){
       dispatch(signIn(JSON.parse(userInfo)))
-      console.log(JSON.parse(userInfo));
+      // console.log(JSON.parse(userInfo));
     }
-  },[])
+  },[dispatch]);
 
   return (
     <div className="App">
@@ -60,11 +61,13 @@ const {accessToken} = useAppSelector(state => state.userInfo)
               <Route path='supreme-agreement' element={<TariffAgreement name={'Supreme'}/>}></Route>
               <Route path='balance' element={<Balance/>}>
                 <Route path='analytics' element={<BalanceAnalytics/>}>
-                  <Route path='refill' element={<Refill/>}></Route>
+                  <Route path='refill' element={<Refill title={'Пополнение баланса'} placeholder={'Сумма пополнения'} btnText={'Пополнить'}/>}></Route>
+                  <Route path='decrease' element={<Refill title={'Списание с баланса'} placeholder={'Сумма списания'} btnText={'Списать'}/>}></Route>
                 </Route>
                 <Route path='history' element={<BalanceHistory/>}></Route>
               </Route>
               <Route path='refferals' element={<Refferals/>}></Route>
+              <Route path='refferars-info' element={<UserAgreement/>}></Route>
               <Route path='about' element={<AppAbout/>}></Route>
               <Route path='roadmap' element={<UserAgreement/>}></Route>
               <Route path='crypto-currency' element={<CoinList />}></Route>
@@ -100,10 +103,10 @@ const MainTitle = styled.h1`
   margin-top: 20%;
   text-align: center;
   font-family: var(--first-font);
-  font-weight: 500;
-  font-size: 55px;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--main-title-size);
   line-height: 60px;
-  color: #FFF;
+  color: var(--color-white);
 `
 
 export default App;

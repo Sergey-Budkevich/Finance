@@ -21,8 +21,10 @@
 --color-orange: #F9A85D;
 --color-light: #41e4ec;
 --color-milk: #F4F5F8;
+--color-lightGray: #828282;
 
 /* sizes */
+--main-title-size: 55px;
 --subtitle-size: 25px;
 --title-size: 45px;
 --text-normal-size: 18px;
@@ -31,6 +33,13 @@
 
 /* padding */
 --app-section-padding: 50px;
+--app-container-padding: 30px;
+
+/* border-radius */
+--app-border-radius: 12px;
+
+/* shadows */
+--app-container-shadow:2px 4px 10px rgba(197, 197, 197, 0.25);
 }
 
 *{
@@ -55,12 +64,6 @@ main{
   margin: 0 auto;
 }
 
-/* .title{
-  font-weight: 700;
-  font-size: 45px;
-  line-height: 53px;
-  font-family: 'Rubik';
-} */
 a{
   text-decoration: none;
   color: rgb(66, 158, 249);
@@ -69,20 +72,9 @@ a:hover{
   scale: 1.08;
 }
 
-/* .main-title{
-  margin-top: 20%;
-  text-align: center;
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 55px;
-  line-height: 60px;
-  color: #FFF;
-} */
-
-.main-page{
+/* .main-page{
   position: relative;
-}
+} */
 
 .disabled{
   opacity: 0.4;

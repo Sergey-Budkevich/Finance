@@ -7,11 +7,11 @@ import { Title } from './styled-components/fonts';
 import CustomLink from './base/CustomLink';
 
 function Balance() {
-console.log(window.location);
 const navigate = useNavigate()
 useEffect(()=> {
     navigate('analytics')
 },[])
+
     return (
         <BalanceWrapper>
             <Content>
@@ -38,7 +38,7 @@ const BalanceWrapper = styled.section`
     padding: var(--app-section-padding) 0;
 `
 const BalanceContainer = styled.div`
-    padding: 30px 0;
+    padding: var(--app-container-padding) 0;
     background-color: var(--color-milk);
     border-radius: 12px ;
 `

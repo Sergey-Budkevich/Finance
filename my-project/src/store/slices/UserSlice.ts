@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import moment from "moment";
 import { initialStateType } from "../../types/User";
+
 
 
 const initialState: initialStateType = {
@@ -11,8 +13,31 @@ const initialState: initialStateType = {
     refreshToken: null,
     accessToken: null,
     refLink: 'https://uroboros33314552',
-    transactionList: [],
-    balance: 0,
+    transactionList: [
+        {
+            date: '11/01/2022',
+            operation: "пополнение",
+            amount: 10,
+            currentBalance: 10,
+            time: '13:15:16'
+        },
+        {
+            date: '11/29/2022',
+            operation: "списание",
+            amount: 3,
+            currentBalance: 7,
+            time: '13:15:16'
+        },
+        {
+            date: '12/06/2022',
+            operation: "пополнение",
+            amount: 10,
+            currentBalance: 17,
+            time: '13:15:16'
+        }
+    ],
+    balance: 17,
+    dateConfirmTariff: null,
 }
 
 export const UserSlice = createSlice({
@@ -24,9 +49,10 @@ export const UserSlice = createSlice({
             state.id = action.payload.user.id;
             state.refreshToken = action.payload.refreshToken;
             state.accessToken = action.payload.accessToken;
-            state.refLink = 'https://uroboros33314552';
-            state.transactionList = state.transactionList;
-            state.balance = state.balance;
+            // state.refLink = 'https://uroboros33314552';
+            // state.transactionList = state.transactionList;
+            // state.balance = state.balance;
+
             localStorage.setItem('userInfo',JSON.stringify(state))
         },
         signIn: (state, action) => {
@@ -38,9 +64,11 @@ export const UserSlice = createSlice({
             state.refLink = action.payload.refLink;
             state.balance = action.payload.balance;
             state.transactionList = action.payload.transactionList;
+            state.dateConfirmTariff = action.payload.dateConfirmTariff;
         },
         changeCurrentTariff: (state,action) => {
             state.currentTariff = action.payload;
+            state.dateConfirmTariff = moment().format('l');
             localStorage.setItem('userInfo',JSON.stringify(state))
         },
         confirmTariff: (state, action) => {
@@ -51,7 +79,7 @@ export const UserSlice = createSlice({
         },
         changeTransactionList: (state,action) => {
             state.transactionList = [...state.transactionList,action.payload]
-            state.balance = state.balance + action.payload.amount
+            state.balance = action.payload.currentBalance
             localStorage.setItem('userInfo',JSON.stringify(state))
         }
     }

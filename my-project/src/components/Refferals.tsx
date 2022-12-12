@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../hooks/hooks';
 
 function Refferals() {
-const {refLink} = useAppSelector(state => state.userInfo)
+const {refLink, balance} = useAppSelector(state => state.userInfo)
 
     return (
         <section className='refferals'>
@@ -41,7 +41,7 @@ const {refLink} = useAppSelector(state => state.userInfo)
                         <div className="refferals_result">
                             <div className="result_header">
                                 <h4 className='result_title'>Всего начисленно по реферальной программе</h4>
-                                <div className='result_header-bar'>10 UBR</div>
+                                <div className='result_header-bar'>{balance} UBR</div>
                             </div>
                             <div className="result_body">
                                 <p className='result_body-text'>В ожидании</p>

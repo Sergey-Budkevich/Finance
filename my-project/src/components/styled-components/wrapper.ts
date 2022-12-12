@@ -1,5 +1,29 @@
 import styled from "styled-components";
 
+type ContainerProps = {
+    backgroundColor?: string,
+}
+
+export const Container = styled.div<ContainerProps>`
+    padding: var(--app-container-padding) 0;
+    background-color: ${props => props.backgroundColor || 'var(--color-white)'};
+    border-radius: var(--app-border-radius);
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+`
+type CardProps = {
+    maxWidth?: string,
+    width?: string
+}
+export const Card = styled.div<CardProps>`
+    border-radius: 10px;
+    background-color: var(--color-white);
+    box-shadow: 2px 4px 10px rgba(197, 197, 197, 0.25);
+    overflow: hidden;
+    ${props => props.maxWidth && `max-width: ${props.maxWidth};`}
+    ${props => props.width && `width: ${props.width};`}
+
+`
+
 type PopUpProps = {
     maxWidth?: string,
     zIndex?: number,

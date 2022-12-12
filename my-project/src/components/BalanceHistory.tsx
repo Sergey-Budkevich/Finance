@@ -20,9 +20,9 @@ function BalanceHistory() {
                 <tbody>
                     { !!transactionList.length && transactionList.map( (item,index) => 
                         <tr key={index}>
-                            <td>{item.date.slice(0,10)}</td>
+                            <td>{item.date}</td>
                             <td style={{color: "#4D92EB"}}>{index + 1}</td>
-                            <td>{item.date.slice(11)}</td>
+                            <td>{item.time.slice(0,8)}</td>
                             <td>{item.operation}</td>
                             <td style= {{ color: item.operation === 'списание' ? "red" :"#27AE60"}}>{item.operation === 'списание' ? '-' : '+'} {item.amount}</td>
                         </tr>

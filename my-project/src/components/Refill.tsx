@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { changeTransactionList } from '../store/slices/UserSlice';
 import Button from './Button';
-import Input from './Input';
 import { PopUpTitle } from './styled-components/fonts';
 import { Flex, PopUp } from './styled-components/wrapper';
+import moment from 'moment';
 
+type PropsType = {
+    title: 'Пополнение баланса' | 'Списание с баланса',
+    placeholder: string,
+    btnText: string,
+}
 
-function Refill() {
+function Refill({title, placeholder, btnText}:PropsType) {
 
     const {balance} = useAppSelector(state => state.userInfo)
 
@@ -18,35 +23,38 @@ function Refill() {
         operation:"пополнение" | "списание";
         amount: number;
         currentBalance: number;
+        time: string;
 
-        constructor(d:string, o:"пополнение" | "списание", a:number){
+        constructor(d:string, o:"пополнение" | "списание", a:number, t: string){
             this.date = d;
             this.operation = o;
             this.amount = a;
             this.currentBalance = o === "пополнение" ? balance + a : balance - a;
+            this.time = t;
         }
     }
 
+
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const [refillAmount,setRefillAmount] = useState<string>('')
-    
+    const [refillAmount,setRefillAmount] = useState<string>('');
+    const operation = title === 'Пополнение баланса' ? 'пополнение' : 'списание';
 
     const changeHandler = () => {
-        dispatch(changeTransactionList(new Transaction(new Date().toLocaleString(),'пополнение',+refillAmount)))
+        dispatch(changeTransactionList(new Transaction(moment().format('l'),operation,+refillAmount,moment().format('LTS'))))
         navigate('/balance/analytics')
-        
+        console.log(balance);
     }
 
     return (
         <CardWrapper>
             <PopUp zIndex={999} padding={'45px 50px 50px'}>
                 <Flex flexDirection='column'>
-                    <PopUpTitle>Пополнение баланса</PopUpTitle>
+                    <PopUpTitle>{title}</PopUpTitle>
                     <RefillForm>
                         <Flex flexDirection='column'>
-                            <input type='number' value={refillAmount} onChange={e => setRefillAmount(e.target.value)} placeholder={'Сумма пополнения'}></input>
-                            <Button onClick={()=> changeHandler() } className={'purple'} type={'button'}>Пополнить</Button>
+                            <input type='number' value={refillAmount} onChange={e => setRefillAmount(e.target.value)} placeholder={placeholder}></input>
+                            <Button onClick={()=> changeHandler() } className={'purple'} type={'button'}>{btnText}</Button>
                         </Flex>
                     </RefillForm>
                     <LinkWrapper>
