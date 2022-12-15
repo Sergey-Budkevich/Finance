@@ -28,9 +28,9 @@ function SideBar() {
                             <BalanceIcon/>
                             <span>Balance</span>
                         </CustomLink>
-                        <CustomLink sidebarLink={true} to='/'>
+                        <CustomLink sidebarLink={true} to='converter'>
                             <BargainingIcon/>
-                            <span>Buy/Sell</span>
+                            <span>Converter</span>
                         </CustomLink>
                         <CustomLink sidebarLink={true} to='crypto-currency'>
                             <GamesIcon/>

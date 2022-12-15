@@ -1,12 +1,13 @@
 import React from 'react';
 import Content from './Content';
 import "../styles/AppAbout.css"
+import { Title } from './styled-components/fonts';
 
 function AppAbout() {
     return (
         <section className='app-about'>
             <Content>
-                <h2 className='app-about_title title'>О компании </h2>
+                <Title color='var(--color-white)' textAlign='start'>О компании </Title>
                 <div className='app-about_container'>
                     <div className='app-about_info'>
                         <h3 className='app-about_subtitle '>Uroboros Investment</h3>

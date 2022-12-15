@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Content from './Content';
 import { Line } from 'react-chartjs-2';
 import CryptoCoin from '../types/CryptoCoin';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler} from 'chart.js';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { fetchCoinList } from '../store/slices/CoinListSlice';
 import '../styles/CoinGraph.css'
+import { Title } from './styled-components/fonts';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement,  Tooltip, Legend, Filler);
 
 
 function CoinGraph() {
@@ -68,7 +69,7 @@ useEffect (()=> {
                 <div className='coin-graph_container'>
                     <Line options={ChartOptions} data={data}></Line>
                     <div className='coins-block' >
-                        <h2 className='title coin-block_title'>Топ {limit} монет</h2>
+                        <Title>Топ {limit} монет</Title>
                         <div className='coin-cards'>
                             {!!coinList.length && coinList.map(coin => 
                                 <div className='coin-card' key={coin.uuid} onClick={()=>setCoin(coin)}>

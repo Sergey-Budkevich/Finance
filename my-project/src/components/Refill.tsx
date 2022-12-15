@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
@@ -15,8 +15,34 @@ type PropsType = {
 }
 
 function Refill({title, placeholder, btnText}:PropsType) {
-
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
     const {balance} = useAppSelector(state => state.userInfo)
+    const input:any = useRef();
+    const [refillAmount,setRefillAmount] = useState<string>('');
+    const [error, setError] = useState<boolean>(false)
+    const operation = title === 'Пополнение баланса' ? 'пополнение' : 'списание';
+
+
+    const changeHandler = () => {
+        if(+refillAmount <= 0){
+            setError(true)
+        }else {
+            dispatch(changeTransactionList(new Transaction(moment().format('l'),operation,+refillAmount,moment().format('LTS'))))
+            navigate('/balance/analytics')
+            setError(false)
+        }
+    }
+
+    const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+        if(event.key === 'Enter'){
+            changeHandler()
+        }
+    }
+
+    useEffect(()=>{
+        input.current.focus()
+    },[])
 
     class Transaction{
         date: string;
@@ -35,25 +61,16 @@ function Refill({title, placeholder, btnText}:PropsType) {
     }
 
 
-    const navigate = useNavigate();
-    const dispatch = useAppDispatch();
-    const [refillAmount,setRefillAmount] = useState<string>('');
-    const operation = title === 'Пополнение баланса' ? 'пополнение' : 'списание';
-
-    const changeHandler = () => {
-        dispatch(changeTransactionList(new Transaction(moment().format('l'),operation,+refillAmount,moment().format('LTS'))))
-        navigate('/balance/analytics')
-        console.log(balance);
-    }
 
     return (
-        <CardWrapper>
+        <CardWrapper tabIndex={0} onKeyDown={onKeyDown}>
             <PopUp zIndex={999} padding={'45px 50px 50px'}>
                 <Flex flexDirection='column'>
                     <PopUpTitle>{title}</PopUpTitle>
                     <RefillForm>
                         <Flex flexDirection='column'>
-                            <input type='number' value={refillAmount} onChange={e => setRefillAmount(e.target.value)} placeholder={placeholder}></input>
+                            <input ref={input} type='number' value={refillAmount} onChange={e => setRefillAmount(e.target.value)} placeholder={placeholder}></input>
+                            { error && <ErrorMessage>Сумма введена некоректно</ErrorMessage> }
                             <Button onClick={()=> changeHandler() } className={'purple'} type={'button'}>{btnText}</Button>
                         </Flex>
                     </RefillForm>
@@ -124,6 +141,10 @@ const LinkWrapper = styled.div`
             scale: none;
         }
     }
+`
+const ErrorMessage = styled.p`
+    color: red;
+    font-weight: var(--font-weight-SemiBold);
 `
 
 export default Refill;

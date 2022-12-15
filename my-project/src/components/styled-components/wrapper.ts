@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const SectionWrapper = styled.section`
+    padding: var(--app-section-padding) 0;
+    position: relative;
+    overflow: auto;
+`
+
 type ContainerProps = {
     backgroundColor?: string,
 }
@@ -47,6 +53,8 @@ type FlexProps = {
     wrap?: 'wrap',
     flex?: number,
     columnGap?: string,
+    rowGap?: string,
+    maxWidth?: string
 }; 
 export const Flex = styled.div<FlexProps>`
     display: flex;
@@ -56,6 +64,10 @@ export const Flex = styled.div<FlexProps>`
     ${props => props.flex && `flex: ${props.flex}` };
     ${props => props.justifyContent && `justify-content: ${props.justifyContent}` };
     ${props => props.columnGap && `column-gap: ${props.columnGap}` };
+    ${props => props.rowGap && `row-gap: ${props.rowGap}` };
+    ${props => props.maxWidth && `max-width: ${props.maxWidth}` };
+
+
 `
 
 export const Content = styled.div`

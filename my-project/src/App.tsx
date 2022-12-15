@@ -28,15 +28,12 @@ import Refill from './components/Refill';
 import styled from 'styled-components';
 import Agreement from './components/Agreement';
 
-
-
 function App() {
   const dispatch = useAppDispatch();
 const {accessToken} = useAppSelector(state => state.userInfo);
 
-
   useEffect(()=>{
-    const userInfo = localStorage.getItem('userInfo') || null
+    const userInfo = localStorage.getItem('userInfo') || null;
     if(userInfo){
       dispatch(signIn(JSON.parse(userInfo)))
       // console.log(JSON.parse(userInfo));
@@ -44,11 +41,12 @@ const {accessToken} = useAppSelector(state => state.userInfo);
   },[dispatch]);
 
   return (
-    <div className="App">
+    <div className="App" >
       {  !!accessToken ?
             <Routes>
             <Route path='/' element={<MainLayout/>}>
               <Route path='/' element={<MainTitle>Добро пожаловать в Uroboros Club!</MainTitle>}></Route>
+              <Route path='converter' element={<Converter/>}></Route>
               <Route path='FAQ' element={<AppQuestions/>}>
                 <Route path='feedback' element={<FeedbackForm/>}></Route>
               </Route>

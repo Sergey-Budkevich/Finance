@@ -1,11 +1,11 @@
-.converter{
+/* .converter{
     min-height: calc(100vh - ( 92px + 154px ));
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.converter-container{
+} */
+/* .converter-container{
     
     width: 100%;
     padding: 30px 20px;
@@ -13,18 +13,18 @@
     -webkit-box-shadow: 0px 0px 8px 5px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 0px 8px 5px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 0px 8px 5px rgba(34, 60, 80, 0.2);
-}
+} */
 
-
+/* 
 .converter-block{
     margin-top: 30px;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     column-gap: 15px;
-}
+} */
 
-.currency-block{
+/* .currency-block{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -35,9 +35,9 @@
 .currency-block label{
     font-size: 18px;
     font-weight: 600;
-}
+} */
 
-.currency-block input,select{
+/* .currency-block input,select{
     height: 35px;
     border-radius: 8px;
     outline: none;
@@ -56,15 +56,15 @@ select:hover{
     cursor: pointer;
 }
 
-option{ text-align: center;}
+option{ text-align: center;} */
 
 
-.amount-currency-block{
+/* .amount-currency-block{
     max-width: 40%;
     width: 100%;
-}
+} */
 
-.result-block{
+/* .result-block{
     margin-top: 40px;
     font-size: 26px;
 }
@@ -73,4 +73,4 @@ option{ text-align: center;}
     font-weight: 600;
     font-size: 34px;
     margin-left: 15px;
-}
+} */
