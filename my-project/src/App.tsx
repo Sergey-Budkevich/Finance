@@ -23,34 +23,35 @@ import Сonfirmation from './components/Сonfirmation';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
 import NewRegistrationForm from './components/NewRegistrationForm';
 import NewSignInForm from './components/NewSignInForm';
-import {changeCurrentTariff,signIn } from './store/slices/UserSlice';
+import {signIn } from './store/slices/UserSlice';
 import Refill from './components/Refill';
-
-
+import styled from 'styled-components';
+import Agreement from './components/Agreement';
 
 function App() {
   const dispatch = useAppDispatch();
+const {accessToken} = useAppSelector(state => state.userInfo);
+
   useEffect(()=>{
-    const userInfo = localStorage.getItem('userInfo') || null
+    const userInfo = localStorage.getItem('userInfo') || null;
     if(userInfo){
       dispatch(signIn(JSON.parse(userInfo)))
-      console.log(JSON.parse(userInfo));
+      // console.log(JSON.parse(userInfo));
     }
-  },[])
-  
-const {accessToken,confirmTariff} = useAppSelector(state => state.userInfo)
+  },[dispatch]);
 
   return (
-    <div className="App">
+    <div className="App" >
       {  !!accessToken ?
             <Routes>
             <Route path='/' element={<MainLayout/>}>
-              <Route path='/' element={<h1 className='main-title'>Добро пожаловать в Uroboros Club!</h1>}></Route>
+              <Route path='/' element={<MainTitle>Добро пожаловать в Uroboros Club!</MainTitle>}></Route>
+              <Route path='converter' element={<Converter/>}></Route>
               <Route path='FAQ' element={<AppQuestions/>}>
                 <Route path='feedback' element={<FeedbackForm/>}></Route>
               </Route>
               <Route path='investments' element={<Investments/>}>
-                <Route path='confirmation' element={<Сonfirmation confirm={()=>dispatch(changeCurrentTariff(confirmTariff))} nonConfirm={'/investments'}/>}></Route>
+                <Route path='confirmation' element={<Сonfirmation nonConfirmAdress={'/investments'}/>}></Route>
               </Route>
               <Route path='average-agreement' element={<TariffAgreement name={'Average'}/>}></Route>
               <Route path='elevated-agreement' element={<TariffAgreement name={'Elevated'}/>}></Route>
@@ -58,11 +59,13 @@ const {accessToken,confirmTariff} = useAppSelector(state => state.userInfo)
               <Route path='supreme-agreement' element={<TariffAgreement name={'Supreme'}/>}></Route>
               <Route path='balance' element={<Balance/>}>
                 <Route path='analytics' element={<BalanceAnalytics/>}>
-                  <Route path='refill' element={<Refill/>}></Route>
+                  <Route path='refill' element={<Refill title={'Пополнение баланса'} placeholder={'Сумма пополнения'} btnText={'Пополнить'}/>}></Route>
+                  <Route path='decrease' element={<Refill title={'Списание с баланса'} placeholder={'Сумма списания'} btnText={'Списать'}/>}></Route>
                 </Route>
                 <Route path='history' element={<BalanceHistory/>}></Route>
               </Route>
               <Route path='refferals' element={<Refferals/>}></Route>
+              <Route path='refferars-info' element={<UserAgreement/>}></Route>
               <Route path='about' element={<AppAbout/>}></Route>
               <Route path='roadmap' element={<UserAgreement/>}></Route>
               <Route path='crypto-currency' element={<CoinList />}></Route>
@@ -93,5 +96,15 @@ const {accessToken,confirmTariff} = useAppSelector(state => state.userInfo)
     </div>
   );
 }
+
+const MainTitle = styled.h1`
+  margin-top: 20%;
+  text-align: center;
+  font-family: var(--first-font);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--main-title-size);
+  line-height: 60px;
+  color: var(--color-white);
+`
 
 export default App;

@@ -1,19 +1,19 @@
-.app-questions{
+/* .app-questions{
     padding: 55px 0 100px;
     
 }
 
 .app-questions .title{
     color: #FFF;
-}
+} */
 
-.app-questions_header{
+/* .app-questions_header{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.app-questions_header .dark {
+.app-questions_header button {
     width: 255px;
     height: 46px;
 }
@@ -23,13 +23,13 @@
     padding: 60px 53px;
     background-color: #FFF;
     border-radius: 12px;
-}
+} */
 
-.app-questions .question-container{
+/* .question-container{
     border-bottom: 1px solid #e0e0e0;
 }
 
-.app-questions .question-title{
+.question-title{
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
@@ -38,7 +38,7 @@
     color: #934DFF;
 }
 
-.app-questions .question-description-title{
+.question-description-title{
     font-weight: 600;
     font-size: 22px;
     line-height: 26px;
@@ -47,7 +47,7 @@
 
 }
 
-.app-questions .question-description-text{
+.question-description-text{
     margin-top: 20px;
     font-family: 'Open Sans';
     font-style: normal;
@@ -55,4 +55,4 @@
     font-size: 14px;
     line-height: 20px; 
     color: #828282;
-}
+} */

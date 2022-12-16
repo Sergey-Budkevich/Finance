@@ -10,6 +10,7 @@ import LineGraphIcon from './Icons/LineGraphIcon';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useAppSelector } from '../hooks/hooks';
+import CustomLink from './base/CustomLink';
 
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
@@ -18,13 +19,8 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 function BalanceAnalytics() {
     const {transactionList,balance} = useAppSelector(state => state.userInfo)
-    
-    const actualDate = new Date().toLocaleString().slice(0,10);
 
-    const dayTransaction = transactionList.length ? transactionList.filter(item => item.date.slice(0,10) === actualDate) : null;
-
-
-    let labels:string[] = transactionList.map( (item) => item.date.slice(0,10));
+    let labels:string[] = transactionList.map( (item) => item.date);
     const ChartOptions = {
         responsive: true,
         plugins: {
@@ -62,18 +58,24 @@ function BalanceAnalytics() {
                         <BalanceIcon/>Баланс UBR 
                     </h3>
                     <h2 className='analytics_balance-title title'>{balance} UBR</h2>
-                    <Link className='analytics_balance-link' to={'refill'}>
-                        <Button className={'light'} type={'button'}>Пополнить</Button>
-                    </Link>
+                    {/* линке маргин */}
+                    <div className='btn_container'>
+                        <CustomLink className='analytics-link' to={'refill'}>
+                            <Button className={'light'} type={'button'} width={'100%'} height={'40px'}>Пополнить</Button>
+                        </CustomLink>
+                        <CustomLink className='analytics-link' to={'decrease'}>
+                            <Button className={'orange'} type={'button'} width={'100%'} height={'40px'}>Списать</Button>
+                        </CustomLink>
+                    </div>
                     <div className='analytics_balance-image'>
                         <img src="../images/balance-card-background.png" alt="balance"/>
                     </div>
                 </div>
             </div>
             <div className='analytics_bottom-row'>
-                <AnalyticsBalanceCard time={'Сегодня'} icon={<CoinsIcon />} transactions={dayTransaction}/>
-                <AnalyticsBalanceCard time={'Неделя'} icon={<BarsIcon/>} balance={`${balance}`} transactions={dayTransaction}/>
-                <AnalyticsBalanceCard time={'Месяц'} icon={<LineGraphIcon/>} balance={`${balance}`} transactions={dayTransaction}/>
+                <AnalyticsBalanceCard time={'Сегодня'} icon={<CoinsIcon />}/>
+                <AnalyticsBalanceCard time={'Неделя'} icon={<BarsIcon/>}/>
+                <AnalyticsBalanceCard time={'Месяц'} icon={<LineGraphIcon/>}/>
             </div>
             <Outlet/>
         </div>
@@ -81,5 +83,3 @@ function BalanceAnalytics() {
 }
 
 export default BalanceAnalytics;
-
-{/* <AnalyticsBalanceCard time={'Сегодня'} icon={<CoinsIcon />} balance={`${dayTransaction?.amount}`} transactions={dayTransaction}/> */}

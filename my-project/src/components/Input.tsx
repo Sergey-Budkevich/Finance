@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "../styles/Input.css"
 
 type PropsType = {
@@ -8,11 +8,13 @@ type PropsType = {
     children?: string,
     classname?: string,
     name?: string,
+    refElement? : React.RefObject<HTMLInputElement>
 }
 
-function Input( {type, requared, placeholder, children, classname, name}:PropsType ) {
+function Input( {type, requared, placeholder, children, classname, name, refElement}:PropsType ) {
 
-    const [inputValue, setInputValue] = useState<any>("")
+    const [inputValue, setInputValue] = useState<string>('')
+
 
 // useEffect ( ()=> {
 //     console.log(inputValue);
@@ -26,6 +28,7 @@ function Input( {type, requared, placeholder, children, classname, name}:PropsTy
         required={requared} 
         placeholder={placeholder}
         name={name}
+        ref={refElement}
         onChange={e => setInputValue(e.target.value)}>
         {children}
         </input>

@@ -11,10 +11,10 @@ import Agreement from "../components/Agreement";
 
 function Main(){
     return (
-        <div className="main-page">
+        <div style={{position: 'relative'}}>
             <Intro />
             <Participation />
-            <Tariffs disabled={true}/>
+            <Tariffs />
             <Questions/>
             <About/>
             <Agreement/>
@@ -22,6 +22,5 @@ function Main(){
         </div>
     )
 }
-
 
 export default Main

@@ -1,40 +1,63 @@
 import React from 'react';
-import Content from './Content';
-import "../styles/AppHeader.css"
 import InstagramIcon from './Icons/InstagramIcon';
 import NotificationIcon from './Icons/NotificationIcon';
 import { Link } from 'react-router-dom';
-import "../styles/AppHeader.css"
 import { useAppSelector } from '../hooks/hooks';
+import styled from 'styled-components';
+import { Content, Flex } from './styled-components/wrapper';
 
 function AppHeader() {
     const {email} = useAppSelector(state => state.userInfo)
     const symbolIndex = email?.indexOf('@');
 
     return (
-        <div className='app-header'>
+        <AppHeaderWrapper>
             <Content>
-                <div className='header_container'>
-                    <h3 className='header_title'>Добро пожаловать, {email ? email.slice(0,symbolIndex) : "Гость"} !</h3>
-                    <div className='header_info-block'>
-                        <div className='header_social'>
+                <Flex justifyContent='space-between' alignItems='center'>
+                    <HeaderTitle>Добро пожаловать, {email ? email.slice(0,symbolIndex) : "Гость"} !</HeaderTitle>
+                    <Flex alignItems='center'>
+                        <HeaderSocial>
                             <a href="https://www.instagram.com/">
-                                <InstagramIcon/>
+                                <InstagramIcon app={true}/>
                             </a>
-                        </div>
-                        <div className='header_user-block'>
+                        </HeaderSocial>
+                        <Flex alignItems='center' columnGap='15px'>
                             <Link to="/">
                                 <NotificationIcon/>
                             </Link>
-                            <div className='user-block_image'>
-                                <img src="./images/Avatar.png" alt="avatar" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <UserImage>
+                                <Flex justifyContent='center' alignItems='center'>
+                                    <img src="./images/Avatar.png" alt="avatar" />
+                                </Flex>
+                            </UserImage>
+                        </Flex>
+                    </Flex>
+                </Flex>
             </Content>
-        </div>
+        </AppHeaderWrapper>
     );
 }
 
+const AppHeaderWrapper = styled.div`
+    width: 100%;
+    background-color: var(--color-white);
+    padding 18px 0;
+`
+const HeaderTitle = styled.h3`
+    line-height: 25px;
+    color: var(--color-darkGray);
+    font-weight: var(--font-weight-SemiBold);
+`
+const HeaderSocial = styled.div`
+    margin-right: 70px;
+`
+const UserImage = styled.div`
+    max-width: 50px;
+    max-height: 50px;
+    border-radius:50%;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+`
 export default AppHeader;

@@ -1,10 +1,54 @@
 @import url('./fonts/fonts.css');
 
+:root{
+/* fonts*/
+--first-font: 'Rubik';
+--second-font: 'Open Sans';
+
+--font-weight-regular: 400;
+--font-weight-medium: 500;
+--font-weight-bold: 700;
+--font-weight-SemiBold: 600;
+
+/* colors */
+--color-white: #FFF;
+--color-darkBlue: #29246A;
+--color-darkGray: #4F4F4F;
+--color-violet: #934DFF;
+--color-blue: #4D92EB;
+--color-red: #FE5C73;
+--color-green: #27AE60;
+--color-orange: #F9A85D;
+--color-light: #41e4ec;
+--color-milk: #F4F5F8;
+--color-lightGray: #828282;
+--color-black: #000;
+
+/* sizes */
+--main-title-size: 55px;
+--subtitle-size: 25px;
+--title-size: 45px;
+--text-normal-size: 18px;
+--text-small-size: 14px;
+
+
+/* padding */
+--app-section-padding: 50px;
+--app-container-padding: 30px;
+
+/* border-radius */
+--app-border-radius: 12px;
+
+/* shadows */
+--app-container-shadow:2px 4px 10px rgba(197, 197, 197, 0.25);
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans';
+  font-family: var(--second-font);
+  font-size: var(--text-normal-size);
 }
 body{
   width: 100%;
@@ -21,34 +65,17 @@ main{
   margin: 0 auto;
 }
 
-.title{
-  font-weight: 700;
-  font-size: 45px;
-  line-height: 53px;
-  font-family: 'Rubik';
-}
 a{
   text-decoration: none;
   color: rgb(66, 158, 249);
 }
-/* a:hover{
+a:hover{
   scale: 1.08;
-} */
-
-.main-title{
-  margin-top: 20%;
-  text-align: center;
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 55px;
-  line-height: 60px;
-  color: #FFF;
 }
 
-.main-page{
+/* .main-page{
   position: relative;
-}
+} */
 
 .disabled{
   opacity: 0.4;
@@ -61,3 +88,11 @@ a{
 .disabled:active{
   opacity: 0.4 !important;
 }
+
+
+.link{
+  color: var(--color-blue);
+}
+/* .link:hover{
+  scale: 1.08;
+} */

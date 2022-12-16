@@ -27,7 +27,7 @@ function Questions(){
                         <div className="callback-block-info">
                             <h3 className="callback-block-title">Свяжитесь с нами</h3>
                             <p className="callback-block-text">Прежде чем заполнять форму обратной связи, убедитесь, что ответ на Ваш вопрос не содержиться в БАЗЕ ЗНАНИЙ</p>
-                            <Button className={"orange"} type={"button"} >Отправить сообщение</Button>
+                            <Button className={"orange"} width='290px' type={"button"} >Отправить сообщение</Button>
                         </div>
                         <div className="callback-block-image">
                             <img src="./images/questions_image.png" alt="woman" />

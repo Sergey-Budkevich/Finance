@@ -9,6 +9,7 @@ export type initialStateType = {
     refLink: string | null,
     transactionList: UserTransaction[] ,
     balance: number,
+    dateConfirmTariff: string | null,
 }
 
 export type Tariff = "average" | "elevated" | "upper" | "supreme" | null;
@@ -18,5 +19,6 @@ export type UserTransaction = {
     operation: "пополнение" | 'списание',
     amount: number,
     currentBalance: number,
+    time: string
 }
 

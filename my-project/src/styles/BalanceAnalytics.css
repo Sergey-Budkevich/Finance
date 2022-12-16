@@ -56,7 +56,7 @@
     text-align: center;
     color: #FFFFFF;
 }
-.analytics_balance-link {
+/* .analytics_balance-link {
     margin-top: 10px;
 }
 .analytics_balance-link:hover{
@@ -65,7 +65,7 @@
 .analytics_balance .light{
     width: 100%;
     height: 40px;
-}
+} */
 
 .analytics_balance-image{
     width: 123px;
@@ -81,4 +81,10 @@
     margin-top: 25px ;
     display: flex;
     column-gap: 20px;
+}
+
+.btn_container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }

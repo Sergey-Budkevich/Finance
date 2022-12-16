@@ -1,7 +1,7 @@
 .question-container{
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #FFFFFF;;
+    border-bottom: 1px solid #FFFFFF;
     padding: 25px 0;
     position: relative;
 }

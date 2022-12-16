@@ -43,7 +43,7 @@ header .transparent {
 
 .top-row-navigation_items{
     display: flex;
-    align-items: center;
+    align-items: stretch;
     column-gap: 10px;
 }
 .top-row-navigation_items .social{

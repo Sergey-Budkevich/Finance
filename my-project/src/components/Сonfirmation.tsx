@@ -2,21 +2,21 @@ import React from 'react';
 import Button from './Button';
 import "../styles/Сonfirmation.css"
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
+import { changeCurrentTariff } from '../store/slices/UserSlice';
 
 type PropsType = {
-    confirm: any,
-    nonConfirm: string
+    nonConfirmAdress: string
 }
 
-function Сonfirmation({confirm, nonConfirm}:PropsType) {
-
+function Сonfirmation({ nonConfirmAdress}:PropsType) {
+    const dispatch = useAppDispatch()
     const navigate = useNavigate();
     const {confirmTariff} = useAppSelector(state => state.userInfo)
 
-    function confirmation(fn: () => void){
-        fn();
-        navigate(nonConfirm)
+    const confirmation = () => {
+        dispatch(changeCurrentTariff(confirmTariff));
+        navigate(nonConfirmAdress);
     }
 
     return (
@@ -24,10 +24,10 @@ function Сonfirmation({confirm, nonConfirm}:PropsType) {
             <div className='confirmation'>
                 <h2 className='title confirmation_title'>Вы уверены что хотите выбрать тариф "{confirmTariff}"?</h2>
                 <div className='confirmation_buttons'>
-                    <Button onClick={ ()=>confirmation(confirm)} className={'orange'} type={'button'}>Да</Button>
-                    <Button onClick={()=>navigate(nonConfirm)} className={'purple'} type={'button'}>Нет</Button>
+                    <Button width={'120px'} onClick={ ()=>confirmation()} className={'orange'} type={'button'}>Да</Button>
+                    <Button width={'120px'} onClick={()=>navigate(nonConfirmAdress)} className={'purple'} type={'button'}>Нет</Button>
                 </div>
-                <button type='button' className='non-confimr-btn' onClick={()=>navigate(nonConfirm)}>x</button>
+                <button type='button' className='non-confimr-btn' onClick={()=>navigate(nonConfirmAdress)}>x</button>
             </div>
         </div>
     );

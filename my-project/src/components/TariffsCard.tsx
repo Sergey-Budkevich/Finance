@@ -3,20 +3,21 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import '../styles/TariffsCard.css'
 import CheckMark from "./Icons/CheckMark";
-import { useAppDispatch } from "../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { confirmTariff } from "../store/slices/UserSlice";
+import CustomLink from "./base/CustomLink";
 
 type PropsType = {
     title: "average" | "elevated" | "upper" | "supreme",
     percent: string,
     color: string,
-    disabled?: true | false,
-    
 }
 
-function TariffsCard(  { title,percent,color, disabled }:PropsType ){
+function TariffsCard(  { title,percent,color }:PropsType ){
 
     const dispatch = useAppDispatch()
+    const {accessToken} = useAppSelector(state => state.userInfo)
+
 
     return(
         <div className="card">
@@ -30,9 +31,9 @@ function TariffsCard(  { title,percent,color, disabled }:PropsType ){
                         Полные условия <CheckMark/>
                     </Link>
                 </div>
-                <Link to="confirmation" className="card-confirm-link">
-                    <Button disabled={disabled} className="dark" type="button" onClick={() => dispatch(confirmTariff(title))} >Выбрать</Button>
-                </Link>
+                <CustomLink to="confirmation" className="card-confirm-link">
+                    <Button disabled={!accessToken ? true : false} className="dark" type="button" width="100%" onClick={() => dispatch(confirmTariff(title))} >Выбрать</Button>
+                </CustomLink>
             </div>
         </div>
     )

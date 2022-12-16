@@ -6,10 +6,7 @@ import { fetchCoinList, fetchPageQty, sortByCapitalization, sortByChange, sortBy
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import {Pagination} from '@mui/material'
 import LoaderSpinner from "./LoaderSpinner";
-
-
-// изменить ошибку
-
+import { Title } from "./styled-components/fonts";
 
 function CoinList(){
     const dispatch = useAppDispatch();
@@ -32,7 +29,7 @@ useEffect(() => {
         { status === 'loading' && <LoaderSpinner/>}
             <Content>
                 <div className="coinlist-container">
-                    <h2 className="title coinlist-title">Курсы криптовалют на сегодня</h2>
+                    <Title>Курсы криптовалют на сегодня</Title>
                     { !!error && <h2 className="loading">{ error }</h2>}
                     { !!coinList.length && 
                     <table className="table">
@@ -75,6 +72,5 @@ useEffect(() => {
         </section>
     )
 }
-
 
 export default CoinList
