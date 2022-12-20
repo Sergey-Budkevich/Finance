@@ -2,11 +2,14 @@ import React from "react";
 import Content from "./Content";
 import '../styles/Questions.css'
 import Question from "./Question";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import Button from "./Button";
+import CustomLink from "./base/CustomLink";
+import { useAppSelector } from "../hooks/hooks";
 
 
 function Questions(){
+
     return(
         <>
         <section className="questions">
@@ -27,7 +30,9 @@ function Questions(){
                         <div className="callback-block-info">
                             <h3 className="callback-block-title">Свяжитесь с нами</h3>
                             <p className="callback-block-text">Прежде чем заполнять форму обратной связи, убедитесь, что ответ на Ваш вопрос не содержиться в БАЗЕ ЗНАНИЙ</p>
-                            <Button className={"orange"} width='290px' type={"button"} >Отправить сообщение</Button>
+                            <CustomLink to={'feedback'}>
+                                <Button className={"orange"} width='290px' type={"button"} >Отправить сообщение</Button>
+                            </CustomLink>
                         </div>
                         <div className="callback-block-image">
                             <img src="./images/questions_image.png" alt="woman" />

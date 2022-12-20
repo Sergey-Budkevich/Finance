@@ -1,7 +1,9 @@
 .user-agreement{
     padding: 70px 0;
 }
+
 .user-agreement_container{
+    position: relative;
     padding: 45px 0;
     background-color: #FFF;
     border-radius: 12px;
@@ -17,4 +19,11 @@
 
 .user-agreement_info li:not(:first-child) {
     margin-top: 20px;
+}
+
+.user-agreement button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
 }

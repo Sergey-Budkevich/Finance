@@ -12,7 +12,9 @@ function NewSignInForm() {
     const navigate = useNavigate();
     let [userEmail,setUserEmail] = useState<string>('');
     let [userPassword,setUserPassword] = useState<string>('');
-    let [error,setError] = useState<boolean>(false)
+    let [error,setError] = useState<boolean>(false);
+    let [authError,setAuthError] = useState<boolean>(false)
+
 
     const signIn = () => {
         if(userEmail !== '' && userPassword !== ''){
@@ -35,14 +37,23 @@ function NewSignInForm() {
                 })
             
                 if(res){
-                    dispatch(authUser(res))
+                    dispatch(authUser(res));
+                    setAuthError(false);
+                    setError(false);
+                    navigate('/');
+                    
+                }else{
+                    setAuthError(true);
+                    setError(false);
+
                 }
             })()
-            navigate('/')
         } else {
-            setError(!error)
+            setError(true);
+            setAuthError(false);
         }
     }
+console.log(authError);
 
     const input = useRef<HTMLInputElement>(null)
 
@@ -64,7 +75,9 @@ function NewSignInForm() {
                             Забыли пароль?
                         </CustomLink>
                     </div>
-                    <p style={error ? {display:'block'} : {display:'none'}} className='newsign_message'>Неверный адрес почты или пароль</p>
+                    <p style={error || authError ? {display:'block'} : {display:'none'}} className='newsign_message'>
+                        { error ? 'Неверный адрес почты или пароль' : authError ? 'Такого пользователя не существует' : ''}
+                    </p>
                     <Button onClick={()=>signIn()} type='button' className='purple'>Продолжить</Button>
                 </form>
                 <h3 className='newsign-in_subtitle'>Нет аккаунта?
