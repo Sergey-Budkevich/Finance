@@ -80,6 +80,7 @@ const {accessToken} = useAppSelector(state => state.userInfo);
               <Route path="registration" element={<NewRegistrationForm/>}></Route>
               <Route path='entry' element={<NewSignInForm/>}></Route>
               <Route path="recovery" element={<RecoveryPassword/>}></Route>
+              <Route path='feedback' element={<FeedbackForm/>}></Route>
             </Route>
             <Route path='average-agreement' element={<TariffAgreement name={'Average'}/>}></Route>
             <Route path='elevated-agreement' element={<TariffAgreement name={'Elevated'}/>}></Route>

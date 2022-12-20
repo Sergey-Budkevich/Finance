@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { fetchNewsList } from '../store/slices/NewsSlice'
 import '../styles/News.css'
 
 import Content from './Content'
 import LoaderSpinner from './LoaderSpinner'
+import { Title } from './styled-components/fonts'
 
 
 
@@ -23,7 +24,7 @@ useEffect( () => {
         { status === 'loading' && <LoaderSpinner/>}
             <Content>
                 <div className='news-container'>
-                    <h2 className='title news-title'>Новости крипторынка</h2>
+                    <Title>Новости крипторынка</Title>
                     <div className='news-wrapper'>
                     {
                         !!newsList.length && 
