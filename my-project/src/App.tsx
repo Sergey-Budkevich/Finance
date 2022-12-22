@@ -27,6 +27,7 @@ import {signIn } from './store/slices/UserSlice';
 import Refill from './components/Refill';
 import styled from 'styled-components';
 import Agreement from './components/Agreement';
+import NewSettings from './components/NewSettings';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -70,7 +71,7 @@ const {accessToken} = useAppSelector(state => state.userInfo);
               <Route path='roadmap' element={<UserAgreement/>}></Route>
               <Route path='crypto-currency' element={<CoinList />}></Route>
               <Route path='crypto-graph' element={<CoinGraph/>}></Route>
-              <Route path='settings' element={<Settings/>}></Route>
+              <Route path='settings' element={<NewSettings/>}></Route>
             </Route>
           </Routes> 
           :

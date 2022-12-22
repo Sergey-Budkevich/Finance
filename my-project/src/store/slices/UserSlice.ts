@@ -6,6 +6,13 @@ import { initialStateType } from "../../types/User";
 
 const initialState: initialStateType = {
     name: null,
+    secondName: null,
+    site: null,
+    instagram: null,
+    facebook: null,
+    telegram: null,
+    vkontakte: null,
+    wallet: null,
     currentTariff: null,
     confirmTariff: null,
     email: null,
@@ -38,6 +45,7 @@ const initialState: initialStateType = {
     ],
     balance: 17,
     dateConfirmTariff: null,
+
 }
 
 export const UserSlice = createSlice({
@@ -52,7 +60,6 @@ export const UserSlice = createSlice({
             // state.refLink = 'https://uroboros33314552';
             // state.transactionList = state.transactionList;
             // state.balance = state.balance;
-
             localStorage.setItem('userInfo',JSON.stringify(state))
         },
         signIn: (state, action) => {
@@ -65,6 +72,14 @@ export const UserSlice = createSlice({
             state.balance = action.payload.balance;
             state.transactionList = action.payload.transactionList;
             state.dateConfirmTariff = action.payload.dateConfirmTariff;
+            state.site = action.payload.site;
+            state.facebook = action.payload.facebook;
+            state.instagram = action.payload.instagram;
+            state.telegram = action.payload.telegram;
+            state.vkontakte = action.payload.vkontakte;
+            state.name = action.payload.name;
+            state.wallet = action.payload.wallet
+            state.secondName = action.payload.secondName;
         },
         changeCurrentTariff: (state,action) => {
             state.currentTariff = action.payload;
@@ -81,8 +96,20 @@ export const UserSlice = createSlice({
             state.transactionList = [...state.transactionList,action.payload]
             state.balance = action.payload.currentBalance
             localStorage.setItem('userInfo',JSON.stringify(state))
+        },
+        changeUserData: (state, action) => {
+            state.site = action.payload.site;
+            state.facebook = action.payload.facebook;
+            state.instagram = action.payload.instagram;
+            state.telegram = action.payload.telegram;
+            state.vkontakte = action.payload.vkontakte;
+            state.name = action.payload.name;
+            state.wallet = action.payload.wallet;
+            state.email = action.payload.email;
+            state.secondName = action.payload.secondName;
+            localStorage.setItem('userInfo',JSON.stringify(state))
         }
     }
 })
 
-export const {authUser, signIn, changeCurrentTariff, confirmTariff, createTransactionList, changeTransactionList} = UserSlice.actions
+export const {authUser, signIn, changeCurrentTariff, confirmTariff, createTransactionList, changeTransactionList, changeUserData} = UserSlice.actions

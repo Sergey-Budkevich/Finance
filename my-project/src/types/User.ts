@@ -1,5 +1,12 @@
 export type initialStateType = {
     name: string | null,
+    secondName: string | null,
+    site: string | null,
+    instagram: string | null,
+    facebook: string | null,
+    telegram: string | null,
+    vkontakte: string | null,
+    wallet: string | null,
     currentTariff: Tariff,
     confirmTariff: Tariff,
     email: string | null,

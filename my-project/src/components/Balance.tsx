@@ -18,7 +18,7 @@ useEffect(()=> {
                 <BalanceContainer>
                     <Content>
                         <Flex alignItems='stretch' justifyContent='space-between' columnGap='45px'>
-                            <Title color='var(--color-darkGray)'>Баланс</Title>
+                            <Title color='var(--color-darkGray)' textAlign='start'>Баланс</Title>
                             <CustomLink  to={'analytics'} btnLink={true} textColor={'var(--color-blue)'} padding={'0 45px'}>
                                 Аналитика доходности
                             </CustomLink>

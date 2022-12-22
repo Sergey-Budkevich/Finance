@@ -7,14 +7,14 @@ import styled from 'styled-components';
 import { Content, Flex } from './styled-components/wrapper';
 
 function AppHeader() {
-    const {email} = useAppSelector(state => state.userInfo)
+    const {email, name} = useAppSelector(state => state.userInfo)
     const symbolIndex = email?.indexOf('@');
 
     return (
         <AppHeaderWrapper>
             <Content>
                 <Flex justifyContent='space-between' alignItems='center'>
-                    <HeaderTitle>Добро пожаловать, {email ? email.slice(0,symbolIndex) : "Гость"} !</HeaderTitle>
+                    <HeaderTitle>Добро пожаловать, {name ? name : email ? email.slice(0,symbolIndex) : 'Гость'} !</HeaderTitle>
                     <Flex alignItems='center'>
                         <HeaderSocial>
                             <a href="https://www.instagram.com/">
@@ -22,9 +22,9 @@ function AppHeader() {
                             </a>
                         </HeaderSocial>
                         <Flex alignItems='center' columnGap='15px'>
-                            <Link to="/">
+                            {/* <Link to="/">
                                 <NotificationIcon/>
-                            </Link>
+                            </Link> */}
                             <UserImage>
                                 <Flex justifyContent='center' alignItems='center'>
                                     <img src="./images/Avatar.png" alt="avatar" />

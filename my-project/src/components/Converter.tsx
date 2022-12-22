@@ -57,7 +57,7 @@ useEffect( () => {
                 <ConverterContainer >
                     <Content>
                         <Flex flexDirection='column'>
-                            <Title textAlign='start'>Конвертер валют</Title>
+                            <Title textAlign='start' color='var(--color-darkGray)'>Конвертер валют</Title>
                             <CurrencyBlock>
                                 <Flex flexDirection='column' rowGap='10px' maxWidth='40%' flex={1}>
                                     <label>Amount</label>

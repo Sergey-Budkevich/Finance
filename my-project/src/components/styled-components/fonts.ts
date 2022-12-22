@@ -18,7 +18,7 @@ type TitleProps = {
     color?: string,
 }
 export const Title = styled.h2<TitleProps>`
-    font-weight: var(--font-weight-bold);
+    width: 100%;
     font-size: var(--title-size);
     line-height: 120%;
     font-family: var(--first-font);

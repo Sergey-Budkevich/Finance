@@ -20,7 +20,7 @@ function AppQuestions() {
                 <Container backgroundColor='var(--color-milk)'>
                     <Content>
                         <Flex justifyContent='space-between'>
-                            <Title color='var(--color-darkGray)'>FAQ</Title>
+                            <Title color='var(--color-darkGray)' textAlign='start'>FAQ</Title>
                             <CustomLink to="feedback">
                                 <Button className="dark" type="button" width='255px' height='45px'>Свяжитесь с нами</Button>
                             </CustomLink>

@@ -53,10 +53,8 @@ function NewSignInForm() {
             setAuthError(false);
         }
     }
-console.log(authError);
 
     const input = useRef<HTMLInputElement>(null)
-
     useEffect(()=>{
         if(input.current) {
             input.current.focus()
